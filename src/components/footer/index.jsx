@@ -89,10 +89,10 @@ const Footer = () => {
             href="https://wa.me/923365925901"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#C48E84] text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-[#a26f67] transition"
+            className="inline-flex items-center gap-2 bg-pink-900 text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-[#a26f67] transition"
           >
             <img
-              src="/assets/images/whatsapp.png"
+              src="/images/wtsplogo.png"
               alt="WhatsApp"
               className="w-5 h-5"
             />
