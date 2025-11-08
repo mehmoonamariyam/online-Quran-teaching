@@ -7,9 +7,9 @@ import { BrowserRouter } from 'react-router-dom'
 function App() {
   return (
     <Provider store={store}>
-      
-        <RoutersCall/>
-      
+      <BrowserRouter>
+        <RoutersCall />
+      </BrowserRouter>
     </Provider>
   )
 }
