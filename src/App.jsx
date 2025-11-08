@@ -1,16 +1,16 @@
+import { Provider } from 'react-redux'
 import './App.css'
 import RoutersCall from './routers'
-
-
-
+import { store } from './store'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-
-
   return (
-    <>
-  <RoutersCall/>
-  </>  
+    <Provider store={store}>
+      
+        <RoutersCall />
+      
+    </Provider>
   )
 }
 

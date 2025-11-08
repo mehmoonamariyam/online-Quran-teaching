@@ -1,9 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom"; // to detect current page
+import { Link, useLocation } from "react-router-dom"; // combined both imports
 
 const Navbar = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/"; // home page check
+  const isHome = location.pathname === "/"; // check if user is on homepage
 
   return (
     <>
@@ -30,15 +30,15 @@ const Navbar = () => {
                      opacity-0 pointer-events-none scale-95 transition-all duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto peer-checked:scale-100 
                      md:static md:flex md:flex-row md:items-center md:justify-end md:space-x-6 md:gap-0 md:opacity-100 md:pointer-events-auto md:scale-100 md:bg-transparent"
         >
-          <a href="#" className="hover:text-pink-800 transition">
+          <Link to="/" className="hover:text-pink-800 transition">
             Home
-          </a>
+          </Link>
           <a href="#" className="hover:text-pink-800 transition">
             About
           </a>
-          <a href="#" className="hover:text-pink-800 transition">
+          <Link to="/courses" className="hover:text-pink-800 transition">
             Courses
-          </a>
+          </Link>
           <a href="#" className="hover:text-pink-800 transition">
             Tutors
           </a>
