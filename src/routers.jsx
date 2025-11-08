@@ -1,12 +1,16 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/homepage';
 import CoursePage from './pages/coursesPage';
 import CourseDetail from './components/courses/courseDetail';
 
+
+
 const RoutersCall = () => {
   return (
     <Routes>
+
       <Route path='/' element={<HomePage />} />
       <Route path='/courses' element={<CoursePage />} />
       <Route path='/courses/:id' element={<CourseDetail />} />
