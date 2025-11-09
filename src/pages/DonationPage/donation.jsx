@@ -18,9 +18,8 @@ const DonationPage = () => {
   ></div>
     <Navbar/>
     <DonationHero/>
-     <QarzeHasana/>  
     </div>
-    
+    <QarzeHasana/>  
     <Footer/>
     </>
   )
