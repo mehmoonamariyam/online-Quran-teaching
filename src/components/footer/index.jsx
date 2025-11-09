@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,6 +16,7 @@ const Footer = () => {
 
         {/* Top Section */}
         <div className="relative flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-10 border-b border-[#C48E84]/30 pb-8">
+          
           {/* Logo + Description */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
             <img
@@ -31,8 +33,8 @@ const Footer = () => {
                   Naba Al Jannah
                 </span>{" "}
                 is your trusted online Quran academy, helping students of all
-                ages learn with qualified tutors in a peaceful environment — from
-                the comfort of home.
+                ages learn with qualified tutors in a peaceful environment —
+                from the comfort of home.
               </p>
             </div>
           </div>
@@ -43,16 +45,36 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2 text-[#7A5C61]">
-              {["Home", "About", "Courses", "Tutors", "Contact"].map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="hover:text-[#C48E84] transition block"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/" className="hover:text-pink-900 hover:underline transition block">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-pink-900 hover:underline transition block">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses" className="hover:text-pink-900 hover:underline transition block">
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link to="/tutors" className="hover:text-pink-900 hover:underline transition block">
+                  Tutors
+                </Link>
+              </li>
+              <li>
+                <Link to="/donate" className="hover:text-pink-900 hover:underline transition block">
+                  Donate
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-pink-900 hover:underline transition block">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 

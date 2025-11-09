@@ -5,6 +5,7 @@ import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
 import Slider from '../../components/slider/slider'
 import CoursesOverview from '../../components/ourcourses'
+import HomeTutors from '../../components/tutors/tutors'
 
 
 
@@ -27,6 +28,7 @@ const HomePage = () => {
     <AboutUs/>
     <CoursesOverview/>
   <Slider/>
+  <HomeTutors/>
     <Footer/>
     
     </>

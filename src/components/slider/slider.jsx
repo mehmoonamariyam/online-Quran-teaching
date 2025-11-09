@@ -98,10 +98,11 @@ const Slider = () => {
 
   return (
     <>
-  <h2 className="text-2xl md:text-4xl font-extrabold text-center mb-6 mt-7 text-pink-900 relative w-full">
-        Why Choose Us?
-        <span className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-24 h-1 bg-linear-to-r from-pink-500 to-pink-900 rounded-full"></span>
-      </h2>
+<h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mt-15 mb-10 relative text-center inline-block w-full">
+  Why Choose Us
+  <span className="block w-24 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
+</h2>
+
 
 
       <section className="bg-pink-900 py-4 overflow-hidden">
