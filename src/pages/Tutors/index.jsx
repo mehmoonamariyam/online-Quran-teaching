@@ -1,12 +1,12 @@
-import React from "react";
-import Container from "../../components/courses/container";
-import Footer from "../../components/footer";
-import Navbar from "../../components/navbar";
-import CoursesHeader from "../../components/courses/CoursesHeader";
+import React from 'react'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/footer'
+import TutorsHeader from '../../components/OurTutors'
+import TutorsCards from '../../components/OurTutors/TutorsCards'
 
-const CoursePage = () => {
+const TutorPage = () => {
   return (
-     <>
+    <>
       {/* Wrapper for header + cards */}
       <div className="relative">
         {/* Header image + dark overlay */}
@@ -20,19 +20,19 @@ const CoursePage = () => {
           }}
         >
           <div className="absolute inset-0 bg-black opacity-10"></div>
-          <Navbar/>
-          <CoursesHeader/>
+          <Navbar />
+          <TutorsHeader />
         </div>
 
         {/* Tutors Cards Section */}
         <div className="bg-pink-50 relative z-10 py-14 px-6">
-          <Container/>
+          <TutorsCards />
         </div>
       </div>
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default CoursePage;
+export default TutorPage

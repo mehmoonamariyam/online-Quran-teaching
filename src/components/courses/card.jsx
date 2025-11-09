@@ -6,6 +6,7 @@ const Card = ({ data }) => {
 
   return (
     <>
+    
       {data?.map((item) => (
        <div
   key={item.id}

@@ -42,9 +42,9 @@ const Navbar = () => {
           <Link to="/courses" className="hover:text-pink-800 transition">
             Courses
           </Link>
-          <a href="#" className="hover:text-pink-800 transition">
+          <Link to="/tutors" className="hover:text-pink-800 transition">
             Tutors
-          </a>
+          </Link>
           <a href="#" className="hover:text-pink-800 transition">
             Contact
           </a>
