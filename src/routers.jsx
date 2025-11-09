@@ -6,6 +6,7 @@ import CourseDetailPage from "./pages/courseDetailPage";
 import LoginPage from "./pages/Login/login"; // from your friend's version
 import DonationPage from "./pages/DonationPage/donation";
 import AboutPage from "./pages/AboutPage/about";
+import SignupPage from "./pages/Login/signup";
 
 const RoutersCall = () => {
   return (
