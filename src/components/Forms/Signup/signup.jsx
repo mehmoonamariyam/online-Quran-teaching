@@ -6,7 +6,8 @@ const SignupForm = () => {
 
     const dispatch = useDispatch();
     const {user, loading, error} = useSelector((state)=> state.signup);
-    const [form, setForm] = useState({name: "", password: "", email:""});
+    const [form, setForm] = useState({name: "", password: "", confirmPassword: "", email:""});
+    const [formError, setFormError] = useState("");
 
 
     const SubmitChange = (e) => {
@@ -15,8 +16,21 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(SignupUser(form));
+    // Validation
+    if (!form.name || !form.email || !form.password || !form.confirmPassword) {
+      setFormError("All fields are required.");
+      return;
+    }
+
+    if (form.password !== form.confirmPassword) {
+      setFormError("Passwords do not match.");
+      return;
+    }
+
+    setFormError(""); // clear previous errors
+    dispatch(SignupUser({ name: form.name, email: form.email, password: form.password }));
   };
+
   return (
    <>
    <div className="p-6 bg-white rounded-xl max-w-sm mx-auto mt-8">
@@ -58,6 +72,14 @@ const SignupForm = () => {
           className="text-pink-400 block w-full mb-3 p-2 border rounded"
         />
 
+   <input
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+          value={form.confirmPassword}
+          onChange={SubmitChange}
+          className="block w-full mb-3 p-2 border rounded"
+        />
 
 {/* Submit Button */}
         <button
@@ -67,6 +89,8 @@ const SignupForm = () => {
         >
           {loading ? "Signing up..." : "Sign Up"}
         </button>
+         {/* Form validation error */}
+  {formError && <p className="text-red-500 mt-2">{formError}</p>}
       </form>
 
       {error && <p className="text-red-500 mt-2">Error: {error}</p>}
