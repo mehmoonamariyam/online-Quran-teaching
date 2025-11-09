@@ -3,7 +3,7 @@ import React from 'react'
 const AboutUs = () => {
   return (
     <>
-    <section className="relative py-20 px-8 md:px-16 bg-[#F5FAE1] overflow-hidden">
+    <section className="relative py-20 px-8 md:px-16 bg-[#ffffff] overflow-hidden">
 
   <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
  

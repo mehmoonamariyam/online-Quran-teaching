@@ -3,6 +3,10 @@ import HomeSection from '../../components/homesection'
 import AboutUs from '../../components/aboutus'
 import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
+import Slider from '../../components/slider/slider'
+import CoursesOverview from '../../components/ourcourses'
+
+
 
 const HomePage = () => {
   return (
@@ -21,6 +25,8 @@ const HomePage = () => {
     </div>
     <ScrollToTop/>
     <AboutUs/>
+    <CoursesOverview/>
+  <Slider/>
     <Footer/>
     
     </>
