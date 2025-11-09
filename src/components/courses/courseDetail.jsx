@@ -16,16 +16,16 @@ const CourseDetail = () => {
       <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Back Button */}
         <Link
-          to="/"
-          className="inline-block text-pink-700 hover:text-pink-900 hover:underline mb-8 font-medium"
+          to="/courses"
+          className="inline-block font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-800 mb-8"
         >
           ← Back to Courses
         </Link>
 
         {/* Main Section: Text Left, Image Right */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
+        <div className="flex flex-col lg:flex-row items-start lg:items-start gap-10">
           {/* Left: Text Content */}
-          <div className="flex-1">
+          <div className="flex-1 lg:pl-5"> {/* Added left padding */}
             <h1 className="text-4xl font-bold text-pink-800 mb-4">
               {course.title}
             </h1>
@@ -69,7 +69,7 @@ const CourseDetail = () => {
             <img
               src={course.pngImage}
               alt={course.title}
-              className="w-80 sm:w-96 lg:w-[500px] object-contain select-none pointer-events-none"
+              className="w-72 sm:w-80 lg:w-[480px] object-contain select-none pointer-events-none" // slightly smaller
             />
           </div>
         </div>
