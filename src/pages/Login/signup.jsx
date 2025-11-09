@@ -1,19 +1,19 @@
 import React from 'react'
-import LoginForm from '../../components/Forms/login/login'
+import SignupForm from '../../components/Forms/Signup/signup'
 
-const LoginPage = () => {
+const SignupPage = () => {
   return (
-    <>
-     <div className='bg-[#C48E84] min-h-screen'>
+  <>
+  <div className='bg-[#ce9f97] min-h-screen'>
 
-    <div className="flex h-screen space-x-5">
+    <div className="flex space-x-5">
       {/* Left side – Login Form */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 p-6">
         <div className="w-full max-w-md">
-          <h1 className="text-3xl font-bold text-center mb-6 text-pink-950 pt-30">
-            Welcome Back 👋
+          <h1 className="text-2xl font-bold text-center mb-6 text-pink-950 pt-30">
+           “Welcome to your learning journey!”
           </h1>
-       <LoginForm/>
+      <SignupForm/>
         </div>
       </div>
 
@@ -27,8 +27,8 @@ const LoginPage = () => {
       </div>
     </div>
     </div>
-    </>
+  </>
   )
 }
 
-export default LoginPage
+export default SignupPage

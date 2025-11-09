@@ -5,12 +5,14 @@ import CoursePage from "./pages/coursesPage";
 import CourseDetailPage from "./pages/courseDetailPage";
 import LoginPage from "./pages/Login/login"; // from your friend's version
 import DonationPage from "./pages/DonationPage/donation";
+import SignupPage from "./pages/Login/signup";
 
 const RoutersCall = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/courses" element={<CoursePage />} />
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route
