@@ -4,6 +4,7 @@ import HomePage from "./pages/homepage";
 import CoursePage from "./pages/coursesPage";
 import CourseDetailPage from "./pages/courseDetailPage";
 import LoginPage from "./pages/Login/login"; // from your friend's version
+import DonationPage from "./pages/DonationPage/donation";
 
 const RoutersCall = () => {
   return (
@@ -16,6 +17,7 @@ const RoutersCall = () => {
         path="*"
         element={<p className="text-center mt-20 text-gray-500">Page not found!</p>}
       />
+      <Route path="/donate" element={<DonationPage/>}/>
     </Routes>
   );
 };

@@ -4,13 +4,14 @@ import { Link, useLocation } from "react-router-dom"; // to detect current page
 
 const Navbar = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/"; // check if user is on homepage
+  const isHome = location.pathname === "/";
+  const isDonate = location.pathname === "/donate"
 
   return (
     <>
       <nav
         className={`relative z-10 px-6 py-0 flex justify-between items-center transition-all duration-300 ${
-          isHome ? "bg-transparent" : "bg-[#F5FAE1] shadow-md"
+          { isHome, isDonate} ? "bg-transparent" : "bg-pink-100 shadow-md"
         }`}
       >
         {/* Logo + Name */}
@@ -47,8 +48,11 @@ const Navbar = () => {
           <a href="#" className="hover:text-pink-800 transition">
             Contact
           </a>
+          <Link to="/donate" className="hover:text-pink-800 transition">
+            Donate
+          </Link>
           <Link to="/login">
-          <button className="font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-800">
+          <button className="font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-700">
             Login
           </button>
           </Link>

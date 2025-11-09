@@ -98,19 +98,19 @@ const Slider = () => {
 
   return (
     <>
-      <h2 className="text-2xl md:text-4xl font-extrabold text-left mb-6 mt-7 text-pink-900 relative inline-block ml-4">
-  Why Choose Us?
- 
-</h2>
+  <h2 className="text-2xl md:text-4xl font-extrabold text-center mb-6 mt-7 text-pink-900 relative w-full">
+        Why Choose Us?
+        <span className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-24 h-1 bg-linear-to-r from-pink-500 to-pink-900 rounded-full"></span>
+      </h2>
 
 
-      <section className="bg-pink-900 py-6 overflow-hidden">
+      <section className="bg-pink-900 py-4 overflow-hidden">
         {/* containerRef used to detect hover/touch */}
         <div ref={containerRef} className="w-full overflow-hidden">
           {/* trackRef is transformed by JS; flex + gap keeps layout */}
           <div
             ref={trackRef}
-            className="flex items-stretch gap-6 will-change-transform"
+            className="flex items-stretch gap-4 will-change-transform"
             style={{
               // ensure the track shrinks properly on small screens;
               // children widths are percentage-based via Tailwind classes below

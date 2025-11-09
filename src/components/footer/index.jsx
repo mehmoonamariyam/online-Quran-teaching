@@ -69,10 +69,10 @@ const Footer = () => {
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/923365925901"
+              href="https://wa.me/923181557123"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-pink-900 text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-[#a26f67] transition"
+              className="inline-flex items-center justify-center gap-2 bg-pink-900 text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-pink-700 transition"
             >
               <img
                 src="/images/wtsplogo.png"
