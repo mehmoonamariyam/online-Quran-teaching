@@ -1,20 +1,24 @@
-
-import React from "react";
-import { Link, useLocation } from "react-router-dom"; // to detect current page
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
-  const isDonate = location.pathname === "/donate"
+  const isDonate = location.pathname === "/donate";
+  const [open, setOpen] = useState(false);
+
+  // Helper function to check if the link is active
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <>
-      <nav
-        className={`relative z-10 px-6 py-0 flex justify-between items-center transition-all duration-300 ${
-          { isHome, isDonate} ? "bg-transparent" : "bg-pink-100 shadow-md"
-        }`}
-      >
-        {/* Logo + Name */}
+    <nav
+      className={`relative z-10 px-6 py-0 flex flex-col items-center transition-all duration-300 ${
+        isHome || isDonate ? "bg-transparent" : "bg-[#F5FAE1] shadow-md"
+      }`}
+    >
+      {/* Logo + Menu */}
+      <div className="relative w-full flex justify-between items-center mt-2 z-10">
+        {/* Logo */}
         <div className="flex items-center">
           <img
             src="/images/logonaba.png"
@@ -26,41 +30,77 @@ const Navbar = () => {
           </h1>
         </div>
 
-
-        {/* Navigation Links */}
-        <div
-          className="absolute top-full left-0 w-full flex flex-col items-center gap-4 py-6 bg-pink-50 font-medium text-rose-900 
-                     opacity-0 pointer-events-none scale-95 transition-all duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto peer-checked:scale-100 
-                     md:static md:flex md:flex-row md:items-center md:justify-end md:space-x-6 md:gap-0 md:opacity-100 md:pointer-events-auto md:scale-100 md:bg-transparent"
+        {/* Hamburger for mobile */}
+        <button
+          className="block md:hidden text-pink-900 font-bold"
+          onClick={() => setOpen(!open)}
         >
-          <Link to="/" className="hover:text-pink-800 transition">
+          ☰
+        </button>
+
+        {/* Menu Links */}
+        <div
+          className={`absolute md:static top-full left-0 w-full md:w-auto flex flex-col md:flex-row items-center gap-4 md:gap-6 bg-pink-50 md:bg-transparent text-rose-900 font-medium transition-all duration-300 ${
+            open ? "opacity-100 pointer-events-auto scale-100" : "opacity-0 pointer-events-none scale-95 md:opacity-100 md:pointer-events-auto md:scale-100"
+          }`}
+        >
+          <Link
+            to="/"
+            className={`hover:text-pink-800 transition ${
+              isActive("/") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             Home
           </Link>
-          <a href="#" className="hover:text-pink-800 transition">
+          <Link
+            to="/about"
+            className={`hover:text-pink-800 transition ${
+              isActive("/about") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             About
-          </a>
-          <Link to="/courses" className="hover:text-pink-800 transition">
+          </Link>
+          <Link
+            to="/courses"
+            className={`hover:text-pink-800 transition ${
+              isActive("/courses") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             Courses
           </Link>
-          <a href="#" className="hover:text-pink-800 transition">
+          <Link
+            to="/tutors"
+            className={`hover:text-pink-800 transition ${
+              isActive("/tutors") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             Tutors
-          </a>
-          <a href="#" className="hover:text-pink-800 transition">
+          </Link>
+          <Link
+            to="/contact"
+            className={`hover:text-pink-800 transition ${
+              isActive("/contact") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             Contact
-          </a>
-          <Link to="/donate" className="hover:text-pink-800 transition">
+          </Link>
+          <Link
+            to="/donate"
+            className={`hover:text-pink-800 transition ${
+              isActive("/donate") ? "text-pink-900 font-bold border-b-2 border-pink-900" : ""
+            }`}
+          >
             Donate
           </Link>
           <Link to="/login">
-          <button className="font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-700">
-            Login
-          </button>
+            <button className="font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-800">
+              Login
+            </button>
           </Link>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
-
 
 export default Navbar;

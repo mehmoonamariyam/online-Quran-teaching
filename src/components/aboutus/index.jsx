@@ -19,10 +19,10 @@ const AboutUs = () => {
 
           {/* Text Section */}
           <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-4xl font-extrabold text-pink-900 mb-6 relative inline-block">
-              About Us
-              <span className="block w-20 h-1 bg-[#C48E84] mt-2 mx-auto md:mx-0 rounded-full"></span>
-            </h2>
+         <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-6 relative inline-block">
+        About Us
+        <span className="block w-20 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
+      </h2>
 
             <p className="text-gray-700 leading-relaxed text-lg mb-6">
               <span className="font-semibold text-[#C48E84]">Naba Al Jannah</span> is an online Quran

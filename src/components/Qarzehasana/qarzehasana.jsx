@@ -39,7 +39,7 @@ const QarzeHasana = () => {
         {qarzeCases.map((caseItem, index) => (
           <div
             key={index}
-            className="bg-pink-200 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition"
+            className="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition border-2 border-pink-900"
           >
             <div className="text-4xl mb-3">{caseItem.icon}</div>
             <h3 className="text-lg font-semibold text-pink-900">{caseItem.title}</h3>
@@ -54,7 +54,7 @@ const QarzeHasana = () => {
 
   <div className="flex flex-col sm:flex-row justify-center gap-6">
     {/* Easypaisa Card */}
-    <div className="flex items-center gap-4 bg-pink-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition">
+    <div className="flex items-center gap-4 bg-pink-100 p-5 rounded-2xl shadow-md hover:shadow-xl transition border-4 border-pink-900">
       <img
         src="/images/easypaisa.png" // optional logo
         alt="Easypaisa"
@@ -67,7 +67,7 @@ const QarzeHasana = () => {
     </div>
 
     {/* JazzCash Card */}
-    <div className="flex items-center gap-4 bg-pink-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition">
+    <div className="flex items-center gap-4 bg-pink-100 p-5 rounded-2xl shadow-md hover:shadow-xl transition border-4 border-pink-900">
       <img
         src="/images/jazzcash.png" // optional logo
         alt="JazzCash"

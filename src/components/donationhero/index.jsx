@@ -7,13 +7,13 @@ const DonationHero = () => {
   <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
     {/* Left: Text */}
   <div className="md:w-1/2 text-center md:text-left">
-  <h1 className="text-4xl md:text-5xl font-extrabold text-pink-900 mb-4">
+  <h1 className="text-4xl md:text-5xl font-extrabold text-pink-900 mb-6">
     Support the Cause — Donate Today
   </h1>
-  <p className="text-lg md:text-xl text-pink-800 mb-4 max-w-xl">
+  <p className="text-lg md:text-xl text-pink-900 mb-4 max-w-xl">
     Helping Others, Uplifting Lives through Sadaqah Jariyah and our Qarze Hasana initiative.
   </p>
-  <p className="text-lg md:text-xl text-pink-800 max-w-xl">
+  <p className="text-lg md:text-xl text-pink-900 max-w-xl">
     Every contribution, big or small, brings hope to deserving individuals and families. 
     Your donation helps widows, orphans, students, and those in urgent need of support, 
     making a lasting impact in their lives.

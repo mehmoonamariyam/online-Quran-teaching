@@ -39,11 +39,11 @@ const coursesOverview = [
 
 const CoursesOverview = () => {
   return (
-    <section className="bg-[#f4e7df] py-14 px-6">
-      <h2 className="text-4xl font-extrabold text-center text-pink-900 mb-12 relative">
-        Learn With Us
-        <span className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-24 h-1 bg-linear-to-r from-pink-500 to-pink-900 rounded-full"></span>
-      </h2>
+    <section className="bg-[#f4e7df] py-10 px-6">
+     <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900  mb-10 relative text-center inline-block w-full">
+ Our Learning Paths
+  <span className="block w-24 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
+</h2>
 
       <div className="max-w-4xl mx-auto space-y-8">
         {coursesOverview.map((course, index) => (
