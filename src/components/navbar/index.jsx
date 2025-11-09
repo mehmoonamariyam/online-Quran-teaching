@@ -1,5 +1,6 @@
+
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // combined both imports
+import { Link, useLocation } from "react-router-dom"; // to detect current page
 
 const Navbar = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const Navbar = () => {
           </h1>
         </div>
 
+
         {/* Navigation Links */}
         <div
           className="absolute top-full left-0 w-full flex flex-col items-center gap-4 py-6 bg-pink-50 font-medium text-rose-900 
@@ -45,13 +47,16 @@ const Navbar = () => {
           <a href="#" className="hover:text-pink-800 transition">
             Contact
           </a>
+          <Link to="/login">
           <button className="font-semibold py-1.5 px-5 rounded-full shadow-lg transition bg-pink-900 text-white hover:bg-pink-800">
             Login
           </button>
+          </Link>
         </div>
       </nav>
     </>
   );
 };
+
 
 export default Navbar;
