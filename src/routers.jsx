@@ -14,8 +14,11 @@ const RoutersCall = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage/>}/>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signin" element ={<LoginPage/>}/>
       <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/courses" element={<CoursePage />} />
+      {/* <Route path="/logcourse" element={<CoursePage/>}/> */}
+      
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route
         path="*"
