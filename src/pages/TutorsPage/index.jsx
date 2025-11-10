@@ -1,9 +1,9 @@
-import DonationHero from '../../components/donationhero'
 import Navbar from '../../components/navbar'
-import QarzeHasana from '../../components/Qarzehasana/qarzehasana'
 import Footer from '../../components/footer'
+import TutorsHeader from '../../components/OurTutors/TutorsHeader'
+import TutorsCard from '../../components/OurTutors/TutorsCards'
 
-const DonationPage = () => {
+const TutorPage = () => {
   return (
     <>
        <div className="relative min-h-screen" style={{
@@ -13,12 +13,12 @@ const DonationPage = () => {
     backgroundPosition: "center",
   }}>
     <Navbar/>
-    <DonationHero/>
+    <TutorsHeader/>
     </div>
-    <QarzeHasana/>  
+    <TutorsCard/>  
     <Footer/>
     </>
   )
 }
 
-export default DonationPage
+export default TutorPage

@@ -10,9 +10,7 @@ const Footer = () => {
         backgroundPosition: "center",
       }}
     >
-      <footer className="relative text-[#5B2C36] py-10 px-8 md:px-20">
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black opacity-10"></div>
+      <footer className="relative text-[#5B2C36] py-10 px-8 md:px-25">
 
         {/* Top Section */}
         <div className="relative flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-10 border-b border-[#C48E84]/30 pb-8">
@@ -61,7 +59,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tutors" className="hover:text-pink-900 hover:underline transition block">
+                <Link to="/tutor" className="hover:text-pink-900 hover:underline transition block">
                   Tutors
                 </Link>
               </li>
