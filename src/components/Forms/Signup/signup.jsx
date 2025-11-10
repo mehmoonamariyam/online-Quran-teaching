@@ -1,118 +1,136 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SignupUser } from '../../../store/slice/FormSlices/signup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
-
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user, loading, error } = useSelector((state) => state.signup);
-  const [form, setForm] = useState({ firstname: "", lastname: "", age: "" });
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const [formError, setFormError] = useState("");
 
-
-  const SubmitChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     // Validation
-    if (!form.firstname || !form.lastname || !form.age) {
-      setFormError("All fields are required.");
+    if (
+      !form.firstName ||
+      !form.lastName ||
+      !form.email ||
+      !form.password ||
+      !form.confirmPassword
+    ) {
+      setFormError("All fields are required");
       return;
     }
-    // if (!form.name || !form.email || !form.password || !form.confirmPassword) {
-    //   setFormError("All fields are required.");
-    //   return;
-    // }
 
-    // if (form.password !== form.confirmPassword) {
-    //   setFormError("Passwords do not match.");
-    //   return;
-    // }
+    if (form.password !== form.confirmPassword) {
+      setFormError("Passwords do not match");
+      return;
+    }
 
     setFormError("");
-    dispatch(SignupUser({ firstname: form.firstname, lastname: form.lastname, age: form.age }));
+
+    try {
+      await dispatch(
+        SignupUser ({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          password: form.password,
+        })
+      ).unwrap();
+
+      // Navigate to login page after signup
+      navigate("/signin");
+    } catch (err) {
+      setFormError(err || "Signup failed");
+    }
   };
 
   return (
     <>
-      <div className="p-6 bg-white rounded-xl max-w-sm mx-auto mt-8">
-        <h2 className="text-pink-900 text-xl font-bold mb-4 pl-30">Sign Up here</h2>
-        <div> <img src="/images/bismillah.png" alt="Logintop"
+    <div className="min-h-screen bg-[#e0b9ab] flex justify-center items-center px-4 py-8">
+  <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+      <div className="p-0 bg-white rounded-xl max-w-sm mx-auto mt-0">
+      <h2 className="text-pink-900 text-xl font-bold mb-4 pl-25">Sign Up here</h2>
+      <div> <img src="/images/bismillah.png" alt="Logintop"
           className="w-[400px] h-[90px] items-center pl-6.5" /></div>
 
-        <div> <img src="/images/loginq.png" alt="Logintop"
+          <div> <img src="/images/loginq.png" alt="Logintop"
           className="w-[350px] h-[150px] items-center pl-8.5" />
-          <h1 className="text-pink-950 text-3xl font-bold pl-10.5 py-0 pt-0 pb-10">NABA-AL-JANNAH</h1></div>
+          <h1 className="text-pink-900 text-2xl font-bold pl-10.5 py-0 pt-0 pb-5">NABA-AL-JANNAH</h1></div>
 
-        <form onSubmit={handleSubmit}>
-
-          {/* Name here */}
-          <input
-            name="firstname"
-            placeholder="Name"
-            value={form.name}
-            onChange={SubmitChange}
-            className=" text-pink-400 block w-full mb-3 p-2 border rounded"
-          />
-
-          {/* Email here */}
-          <input
-            name="lastname"
-            placeholder="Last Name"
-            value={form.lastname}
-            onChange={SubmitChange}
-            className=" text-pink-400 block w-full mb-3 p-2 border rounded"
-          />
-
-          <input
-            name="age"
-            placeholder="Enter Age"
-            value={form.age}
-            onChange={SubmitChange}
-            className=" text-pink-400 block w-full mb-3 p-2 border rounded"
-          />
-
-
-          {/* password here */}
-          {/* <input
-          name="password"
+      <form onSubmit={handleSubmit}>
+        <input
+          name="firstName"
+          placeholder="First Name"
+          value={form.firstName}
+          onChange={handleChange}
+         className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
+        />
+        <input
+          name="lastName"
+          placeholder="Last Name"
+          value={form.lastName}
+          onChange={handleChange}
+          className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
+        />
+        <input
+          name="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+         className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
+        />
+        <input
           type="password"
+          name="password"
           placeholder="Password"
           value={form.password}
-          onChange={SubmitChange}
-          className="text-pink-400 block w-full mb-3 p-2 border rounded"
-        /> */}
-          {/* Confirm Password */}
-          {/* <input
-          name="confirmPassword"
+          onChange={handleChange}
+ className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
+        />
+        <input
           type="password"
+          name="confirmPassword"
           placeholder="Confirm Password"
           value={form.confirmPassword}
-          onChange={SubmitChange}
-          className="block w-full mb-3 p-2 border rounded"
-        /> */}
+          onChange={handleChange}
+ className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
+        />
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-pink-950 text-white rounded px-4 py-2 w-full"
-            disabled={loading}
-          >
-            <Link to="/signin">
-              {loading ? "Signing up..." : "Sign Up"}</Link>
-          </button>
+{(formError || error) && (
+  <p className="text-red-500 mt-2">{formError || error}</p>
+)}
+        <button
+          type="submit"
+          className="bg-pink-950 text-white rounded px-4 py-2 w-full"
+          disabled={loading}
+        >
+          {loading ? "Signing up..." : "Sign Up"}
+        </button>
 
-
-          {/* Form validation error */}
-          {formError && <p className="text-red-500 mt-2">{formError}</p>}
-        </form>
-
-        {error && <p className="text-red-500 mt-2">Error: {error}</p>}
+        {/* Validation and API errors */}
+        {formError && <p className="text-red-500 mt-2">{formError}</p>}
+        {error && <p className="text-red-500 mt-2">{error}</p>}
         {user && <p className="text-green-600 mt-2">Signup successful!</p>}
-      </div>
+      </form>
+    </div>
+    </div>
+    </div>
     </>
   )
 }
