@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser} from '../../../store/slice/FormSlices/login';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,6 @@ const LoginForm = () => {
     );
     const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch thunk; thunk will handle api call and set loading/error/user via extraReducers
     dispatch(loginUser({ username, password }));
   };
   return (
@@ -27,15 +27,15 @@ const LoginForm = () => {
 
         {/* intro portion */}
 
-        <div> <img src="/images/loginb.png" alt="Logintop"
+        <div> <img src="/images/bismillah.png" alt="Logintop"
           className="w-[400px] h-[90px] items-center pl-6.5" /></div>
 
           <div> <img src="/images/loginq.png" alt="Logintop"
           className="w-[350px] h-[150px] items-center pl-8.5" />
-          <h1 className="text-pink-950 text-3xl font-bold pl-10.5 py-0 pt-0">NABAH-AL-JANAH</h1></div>
+          <h1 className="text-pink-950 text-3xl font-bold pl-10.5 py-0 pt-0">NABA-AL-JANNAH</h1></div>
 
 
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-700"></h2>
+        {/* <h2 className="text-2xl font-bold text-center mb-6 text-gray-700"></h2> */}
 
         {user ? (
           <div className="text-center mb-4">
@@ -78,9 +78,10 @@ const LoginForm = () => {
 
         <p className="text-sm text-center mt-4">
           Don’t have an account?{" "}
-          <a href="/register" className="text-pink-950 hover:underline">
-            Signup
-          </a>
+          <Link to ="/signup" className="text-pink-950 hover:underline">
+  Signup
+</Link>
+
         </p>
       </div>
     </div>

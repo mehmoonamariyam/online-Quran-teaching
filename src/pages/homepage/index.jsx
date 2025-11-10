@@ -5,6 +5,7 @@ import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
 import Slider from '../../components/slider/slider'
 import CoursesOverview from '../../components/ourcourses'
+import HomeTutors from '../../components/tutors/tutors'
 
 
 
@@ -17,9 +18,6 @@ const HomePage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
-     <div
-    className="absolute inset-0 bg-black opacity-10"
-  ></div>
     <Navbar/>
     <HomeSection/>
     </div>
@@ -27,6 +25,7 @@ const HomePage = () => {
     <AboutUs/>
     <CoursesOverview/>
   <Slider/>
+  <HomeTutors/>
     <Footer/>
     
     </>

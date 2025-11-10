@@ -4,9 +4,9 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import CoursesHeader from "../../components/courses/CoursesHeader";
 
-const CoursePage = () => {
+const DonationPage = () => {
   return (
-     <>
+    <>
       {/* Wrapper for header + cards */}
       <div className="relative">
         {/* Header image + dark overlay */}
@@ -19,14 +19,14 @@ const CoursePage = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-10"></div>
-          <Navbar/>
-          <CoursesHeader/>
+          
+          <Navbar />
+          <CoursesHeader />
         </div>
 
         {/* Tutors Cards Section */}
         <div className="bg-pink-50 relative z-10 py-14 px-6">
-          <Container/>
+          <Container />
         </div>
       </div>
 
@@ -35,4 +35,4 @@ const CoursePage = () => {
   );
 };
 
-export default CoursePage;
+export default DonationPage;

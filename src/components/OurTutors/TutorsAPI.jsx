@@ -5,73 +5,73 @@ export const fetchTutors = () => {
   return Promise.resolve([
     {
       id: 1,
-      name: "Ustadh Ayesha Kareem",
+      name: "Ustadha Ayesha Kareem",
       shortInfo: "Expert in Quran Recitation & Tajweed",
       details:
-        "With over 8 years of teaching experience, Ustadh Ayesha has guided hundreds of students in perfecting their Tajweed. She holds an Ijazah in Quran recitation from Al-Azhar and specializes in one-on-one mentorship for female students.",
+        "With over 8 years of teaching experience, Ustadha Ayesha has guided hundreds of students in perfecting their Tajweed. She holds an Ijazah in Quran recitation from Al-Azhar and specializes in one-on-one mentorship for female students.",
     },
     {
       id: 2,
-      name: "Ustadh Muhammad Bilal",
-      shortInfo: "Arabic Grammar & Quranic Studies Teacher",
+      name: "Ustadha Hafsa Noor",
+      shortInfo: "Quran Memorization Specialist",
       details:
-        "Graduated from International Islamic University, Islamabad, with a major in Arabic Language and Quranic Sciences. He focuses on making Arabic easy for beginners and connecting it with Quranic meaning.",
+        "Certified Hafiza with over 10 years of experience teaching Hifz programs to kids and adults. Hafsa emphasizes gentle motivation and structured memorization plans. Her students excel in Hifz competitions due to her patient guidance and holistic teaching approach.",
     },
     {
       id: 3,
-      name: "Ustadh Hafsa Noor",
-      shortInfo: "Quran Memorization Specialist",
+      name: "Ustadha Fatima Zehra",
+      shortInfo: "Experienced Online Quran Tutor",
       details:
-        "Certified Hafiza with over 10 years of experience in teaching Hifz programs to kids and adults. She believes in gentle motivation and consistent tracking to help students achieve their memorization goals.",
+        "Fatima Zehra has a degree in Islamic Education and over 5 years of experience teaching Quran online. She uses modern tools like interactive lessons and quizzes to make learning engaging while focusing on Tajweed and understanding.",
     },
     {
       id: 4,
-      name: "Ustadh Ahmed Raza",
-      shortInfo: "Islamic Studies & Tafsir Teacher",
+      name: "Ustadha Bilqis Sami",
+      shortInfo: "Tajweed & Quran Recitation Expert",
       details:
-        "An inspiring speaker and scholar, Ustadh Ahmed has taught Tafsir and Seerah for 6+ years. His interactive teaching style helps students relate Quranic lessons to everyday life.",
+        "Bilqis Sami has 7 years of teaching experience, specializing in Tajweed and beautiful Quran recitation for students of all ages. Her interactive approach helps students perfect pronunciation and melody with love and respect for the Quran.",
     },
     {
       id: 5,
-      name: "Ustadh Fatima Zehra",
-      shortInfo: "Experienced Online Quran Tutor",
+      name: "Ustadha Zainab Khawar",
+      shortInfo: "Hifz & Memorization Coach",
       details:
-        "Fatima Zehra has a degree in Islamic Education and over 5 years of experience teaching Quran online. She combines technology with traditional methods for engaging virtual lessons.",
+        "With 12 years of experience, Zainab Khawar provides personalized memorization plans and regular assessments. She ensures long-term retention through repetition, comprehension, and consistent practice.",
     },
     {
       id: 6,
-      name: "Ustadh Bilqis Sami",
-      shortInfo: "Tajweed & Quran Recitation Expert",
+      name: "Ustadha Maryam Anwar",
+      shortInfo: "Online Quran & Arabic Tutor",
       details:
-        "Bilqis Sami has 7 years of teaching experience and specializes in Tajweed and beautiful Quran recitation for students of all ages. She encourages interactive and engaging learning sessions.",
+        "Maryam Anwar has 6 years of experience teaching Quran and Arabic online. She combines traditional recitation methods with modern digital tools to make Quran learning effective and enjoyable for students of all ages.",
     },
     {
       id: 7,
-      name: "Ustadh Omar Farooq",
-      shortInfo: "Quranic Arabic & Grammar Teacher",
+      name: "Ustadha Sana Tariq",
+      shortInfo: "Quran & Tafsir Teacher",
       details:
-        "Omar Farooq is a graduate of Darul Uloom Deoband, teaching Quranic Arabic and grammar. He emphasizes understanding Quranic verses in their original language.",
+        "Sana Tariq has 8 years of experience teaching Tafsir and Quranic studies. Her classes connect Quranic lessons to everyday life, helping students understand and apply Islamic teachings practically.",
     },
     {
       id: 8,
-      name: "Ustadh Zainab Khawar",
-      shortInfo: "Hifz & Memorization Coach",
+      name: "Ustadha Samina Iqbal",
+      shortInfo: "Tajweed & Arabic Grammar Instructor",
       details:
-        "With 12 years of experience, Zainab Khawar trains students in Hifz programs, providing personalized memorization plans and regular progress assessments.",
+        "Samina Iqbal has 9 years of teaching experience in Tajweed and Arabic grammar. She emphasizes clarity, articulation, and comprehension, helping students excel in Quran recitation and linguistic understanding.",
     },
     {
       id: 9,
-      name: "Ustadh Samiullah Khan",
-      shortInfo: "Tafsir & Islamic Studies Instructor",
+      name: "Ustadha Nida Khalid",
+      shortInfo: "Hifz & Quran Comprehension Tutor",
       details:
-        "Samiullah Khan teaches Tafsir and Seerah with a practical approach, helping students relate Quranic lessons to their daily lives and spiritual growth.",
+        "Nida Khalid has 10 years of experience helping students memorize and understand the Quran. Her classes combine structured memorization with explanation of verses for a deeper spiritual connection.",
     },
     {
       id: 10,
-      name: "Ustadh Maryam Anwar",
-      shortInfo: "Online Quran & Arabic Tutor",
+      name: "Ustadha Shazia Rauf",
+      shortInfo: "Islamic Studies & Quran Teacher",
       details:
-        "Maryam Anwar has 6 years of online teaching experience, focusing on Quran recitation, Tajweed, and Arabic comprehension. She uses modern tools for effective virtual learning.",
+        "Shazia Rauf has over 7 years of experience teaching Islamic studies and Quran online. Her interactive teaching and personalized feedback ensure students progress with confidence and love for the Quran.",
     },
   ]);
 };

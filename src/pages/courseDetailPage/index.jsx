@@ -8,10 +8,10 @@ const CourseDetailPage = () => {
     <div className="bg-pink-50 min-h-screen">
       {/* Navbar */}
       <div className="relative">
-        <Navbar/>
+        <Navbar />
       </div>
 
-      {/* Course Detail container with same left/right margin as cards */}
+      {/* Course Detail container */}
       <div className="px-5 pt-8 max-w-7xl mx-auto">
         <CourseDetail />
       </div>

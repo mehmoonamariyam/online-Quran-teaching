@@ -62,11 +62,10 @@ const CourseDetail = () => {
             <h3 className="text-lg font-semibold mb-2 text-pink-700">
               Ideal For:
             </h3>
-           <p
-  className="mb-6 text-lg text-justify"
-  dangerouslySetInnerHTML={{ __html: course.idealFor }}
-></p>
-
+            <p
+              className="mb-6 text-lg text-justify"
+              dangerouslySetInnerHTML={{ __html: course.idealFor }}
+            ></p>
 
             {/* Price */}
             <p className="text-lg font-semibold">

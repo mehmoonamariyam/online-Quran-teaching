@@ -14,7 +14,7 @@ const qarzeCases = [
 
 const QarzeHasana = () => {
   return (
-    <section className="py-16 px-6 md:px-16 bg-white">
+    <section className="py-16 px-6 md:px-16 bg-pink-50">
  <div className="text-center mb-12 px-4 md:px-0">
   <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-4 relative inline-block">
     Qarze Hasana Initiative
@@ -39,7 +39,7 @@ const QarzeHasana = () => {
         {qarzeCases.map((caseItem, index) => (
           <div
             key={index}
-            className="bg-pink-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition"
+            className="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition border-3 border-pink-800"
           >
             <div className="text-4xl mb-3">{caseItem.icon}</div>
             <h3 className="text-lg font-semibold text-pink-900">{caseItem.title}</h3>
@@ -54,7 +54,7 @@ const QarzeHasana = () => {
 
   <div className="flex flex-col sm:flex-row justify-center gap-6">
     {/* Easypaisa Card */}
-    <div className="flex items-center gap-4 bg-linear-to-r from-pink-100 to-pink-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition">
+    <div className="flex items-center gap-4 bg-pink-100 p-5 rounded-2xl shadow-md hover:shadow-xl transition border-4 border-pink-900">
       <img
         src="/images/easypaisa.png" // optional logo
         alt="Easypaisa"
@@ -67,7 +67,7 @@ const QarzeHasana = () => {
     </div>
 
     {/* JazzCash Card */}
-    <div className="flex items-center gap-4 bg-linear-to-r from-pink-100 to-pink-200 p-5 rounded-2xl shadow-md hover:shadow-xl transition">
+    <div className="flex items-center gap-4 bg-pink-100 p-5 rounded-2xl shadow-md hover:shadow-xl transition border-4 border-pink-900">
       <img
         src="/images/jazzcash.png" // optional logo
         alt="JazzCash"
