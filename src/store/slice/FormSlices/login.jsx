@@ -13,19 +13,17 @@ export const loginUser = createAsyncThunk(
         
         
         });
+        const data = await response.json();
 
         // If request fails , reject
-        if (!response.ok) {
-            const error = await response.text();
-            return rejectWithValue(error || "Invalid login credentials");
-        }
+        if (!data.token) {
+        // API returned something but no token → invalid credentials
+        return rejectWithValue(data.message || "Invalid login credentials");
+      }
 
-        // Otherwise, parse and return JSON data
-        const data = await response.json();
-        console.log("✅ Login successful, fetched data (string):", JSON.stringify(data, null, 2));
-        return data;
-    }
-);
+      console.log("✅ Login successful:", data);
+      return data;
+});
 const initialState = {
     user: null,
     loading: false,

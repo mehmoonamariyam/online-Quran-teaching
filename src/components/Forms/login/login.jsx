@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser} from '../../../store/slice/FormSlices/login';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
+    // const navigate = useNavigate();
     const { user, loading, error } = useSelector((state) => state.login || state);
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     useEffect(()=>{
-         if (user) {
-      setUsername("");
-      setPassword("");
+        if (user) {
+      setUsername();
+      setPassword();
     }
-    },[user]
-    );
+  }, [user]);
+
     const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser({ username, password }));
@@ -52,7 +53,7 @@ const LoginForm = () => {
           <input
             type="text"
             placeholder="Enter your username"
-            className="bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus:outline-none focus:ring-2 focus: ring-white"
+            className="bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -61,7 +62,7 @@ const LoginForm = () => {
           <input
             type="password"
             placeholder="Enter your password"
-            className="bg-[#f8f4f4] text-[#fe4653] placeholder-[#C48E84] border-none p-2 rounded focus:outline-none focus:ring-2 focus:ring-white"
+            className="bg-[#f8f4f4] text-[#fe4653] placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus:ring-2 focus: ring-white"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -72,7 +73,9 @@ const LoginForm = () => {
             className={`py-2 rounded text-white font-bold transition ${loading ? "bg-blue-300 cursor-not-allowed" : "bg-pink-950 hover:bg-blue-600"}`}
             disabled={loading}
           >
+            {/* <Link to="logcourse"> */}
             {loading ? "Logging in..." : "Login"}
+            {/* </Link> */}
           </button>
         </form>
 
