@@ -18,9 +18,6 @@ const HomePage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
-     <div
-    className="absolute inset-0 bg-black opacity-10"
-  ></div>
     <Navbar/>
     <HomeSection/>
     </div>

@@ -1,12 +1,12 @@
 export const API = [
   {
     id: 1,
-    title: "Basic Tajweed Level",
+    title: "Basic Tajweed",
     category: "Adults",
     description:
-      "Learn to recite the Quran with clarity, beauty, and devotion. Start your journey toward correct pronunciation and fluent recitation through interactive lessons and expert guidance. Build your foundation in Tajweed rules, Makharij, and Sifaat and experience the joy of connecting with the Quran.",
+      "<b>Learn to recite the Quran with clarity, beauty, and devotion.</b><br/>Start your spiritual journey toward mastering the art of Quranic recitation through engaging, interactive lessons designed for learners at every level. Under the guidance of experienced and certified tutors, you’ll build confidence and fluency step by step. This course will help you establish a solid foundation in <b>Tajweed rules, Makharij, and Sifaat</b>, ensuring each letter and sound is pronounced precisely and respectfully. As you progress with personalized feedback and practical exercises, you’ll deepen your connection to the Quran and experience the peace and joy that come from reciting its words beautifully.",
     idealFor:
-      "Beginners or anyone wishing to start their Tajweed journey from the basics and build a strong foundation for fluent and melodious Quran recitation.",
+      "Beginners or anyone wishing to start their <b>Tajweed journey</b> from the very basics will find this course ideal. It is designed to help you build a strong foundation for accurate and fluent Quran recitation. Through step-by-step lessons, practical exercises, and expert guidance, you will gradually learn the rules of <b>Tajweed</b>, understand proper pronunciation, and gain the confidence to recite the Quran melodiously. Whether you are new to Quranic studies or looking to improve your recitation skills, this course ensures a solid start and a path to mastery.",
     duration: "6 weeks",
     level: "Basic",
     instructor: "Ustadha Fatima",
@@ -25,12 +25,12 @@ export const API = [
   },
   {
     id: 2,
-    title: "Advanced Tajweed Level",
+    title: "Advanced Tajweed",
     category: "Adults",
     description:
-      "Master the Art of Quranic Recitation with Precision and Accuracy. The Advanced Tajweed Level is crafted for learners who have already built a foundation in Tajweed and are ready to refine their recitation to professional, graceful accuracy.",
+      "<b>Master the Art of Quranic Recitation with Precision and Accuracy</b><br/>The <b>Advanced Tajweed Level</b> is crafted for learners who have already built a foundation in Tajweed and are ready to refine their recitation to professional, graceful accuracy. This level focuses on the <b>intricacies of advanced Tajweed rules, rhythmic flow (Tarteel),</b> and the <b>spiritual depth of proper recitation</b> as taught by expert Ustazah. Students will explore complex rules and their applications in different Quranic contexts learning how to balance <b>clarity, melody, and emotion</b> in every verse. Through intensive practice sessions and personalized feedback, learners will enhance both their <b>fluency</b> and <b>spiritual expression</b> in recitation.",
     idealFor:
-      "Students who have completed the Basic Tajweed Level or already possess foundational knowledge and wish to perfect their recitation skills for teaching, leading prayers, or achieving Ijazah level proficiency.",
+      "Students who have completed the <b>Basic Tajweed Level</b> or already possess foundational knowledge are prepared to advance their skills. This stage is designed for those who wish to perfect their recitation for <b>teaching</b> or attaining <b>Ijazah-level proficiency</b>. Learners will focus on refining pronunciation, mastering complex rules, and achieving <b>consistent fluency and accuracy</b> in every verse. Emphasis is placed on <b>intonation, rhythmic recitation (Tarteel),</b> and maintaining the <b>spiritual depth and expression</b> of the Quran. Through guided practice sessions and personalized feedback from experienced instructors, students will develop the confidence and expertise necessary to teach, lead, and recite with mastery and devotion.",
     duration: "8 weeks",
     level: "Advanced",
     instructor: "Ustadha Hina",
@@ -49,12 +49,12 @@ export const API = [
   },
   {
     id: 3,
-    title: "Tarteel Level",
+    title: "Tarteel Course",
     category: "Adults",
     description:
-      "Beautify Your Recitation. Let Every Verse Flow with Grace. The Tarteel Level is designed for learners who wish to elevate their Quran recitation focusing on beauty, rhythm, and soulful delivery.",
+      "<br/><b>Beautify Your Recitation  Let Every Verse Flow with Grace</b><br/>The <b>Tarteel Level</b> is designed for learners who wish to elevate their Quran recitation beyond accuracy, focusing on <b>beauty, rhythm, and soulful delivery</b>. At this stage, students master the art of reciting the Quran with <b>measured pace</b> and <b>emotional depth</b>, as instructed in the Holy Quran: <br/><b>“And recite the Quran with measured recitation (Tarteel).” [Surah Al-Muzzammil: 4]</b><br/>Through guided recitation practice, <b>voice modulation exercises</b>, and <b>advanced rhythmic training</b>, students learn how to recite melodiously while maintaining <b>perfect Tajweed</b>. This course refines <b>tone, flow, and expression</b>, helping learners connect spiritually and emotionally with every verse.",
     idealFor:
-      "Students who have completed the Advanced Tajweed Level or possess strong command of Tajweed rules and wish to beautify their recitation with elegance, fluency, and heartfelt devotion.",
+      "<br/><b>Students who have completed the Advanced Tajweed Level</b> or already possess a <b>strong command of Tajweed rules</b> and wish to <b>beautify their recitation with elegance, fluency, and heartfelt devotion</b>. At this stage, learners refine every aspect of their Quranic recitation, focusing on <b>tone, clarity, rhythm, and spiritual depth</b>. They engage in <b>advanced practice sessions</b> guided by expert instructors, mastering the subtle intricacies of <b>prolongation (Madd), articulation points (Makharij), and characteristics of letters (Sifaat)</b>. This course emphasizes <b>precision, melodic delivery, and emotional connection</b>, helping students deliver the Quran with <b>grace, confidence, and devotional expression</b>. By the end, learners achieve a polished, professional-level recitation that resonates both intellectually and spiritually.",
     duration: "10 weeks",
     level: "Intermediate",
     instructor: "Ustadha Mehwish",
@@ -73,18 +73,18 @@ export const API = [
   },
   {
     id: 4,
-    title: "Kids Tajweed Basic",
+    title: "Kids Basic Tajweed",
     category: "Kids",
     description:
-      "Nurturing Young Hearts to Recite the Quran with Love and Clarity. Our Kids Tajweed Group is specially designed to make Quran learning a joyful and inspiring experience for young learners.",
+      "<br/>Nurturing Young Hearts to Recite the Quran with <b>Love and Clarity</b>. Our <b>Kids Tajweed Group</b> is specially designed to provide young learners with a joyful and inspiring Quran learning experience. At the basic level, children are introduced to the <b>Arabic alphabet</b>, correct pronunciation, and fundamental <b>Tajweed rules</b> in a simple, interactive, and engaging manner. Through fun activities, storytelling, and interactive exercises, kids gradually develop accurate recitation skills, memorization techniques, and an appreciation for the beauty of the Quran. With patient guidance from caring teachers, children learn to practice consistently, read with confidence, and build a strong foundation in <b>Tajweed</b>. Each class is carefully structured to balance learning, play, and recitation practice, creating a positive, memorable, and spiritually enriching journey for every child. By the end of the program, students gain clarity in recitation, confidence, and a lasting love for the Quran.",
     idealFor:
-      "Children aged 5 to 12 years who are beginning their Qur'an learning journey and wish to build a strong, joyful foundation in Tajweed.",
+      "<br/>Children aged <b>5 to 12 years</b> who are beginning their Qur'an learning journey and wish to build a strong, joyful foundation in <b>Tajweed</b>. This program introduces young learners to the <b>Arabic alphabet</b>, correct pronunciation, and basic Tajweed rules in a fun and engaging way. Through interactive lessons, songs, games, and recitation exercises, children gradually develop <b>accurate recitation skills</b>, confidence, and a love for the Qur'an. With patient guidance from caring instructors, students learn to recite with clarity, follow proper rhythm, and enjoy the process of learning. By the end of the program, they acquire a solid foundation in Tajweed, strong reading habits, and a joyful connection to the Qur'an that will support further learning and memorization.",
     duration: "6 weeks",
     level: "Basic",
     instructor: "Ustadha Maryam",
     image: "/images/Courseimages/kids1.png",
     textOnImage:
-      "<b>Kids <br> Tajweed</b><br><span style='font-weight:normal;'>1st Level</span>",
+      "<b>Kids Basic <br> Tajweed</b><br><span style='font-weight:normal;'>1st Level</span>",
     pngImage: "/images/Courseimages/1stkidspng.png",
     details: [
       "Arabic alphabet learning",
@@ -101,9 +101,9 @@ export const API = [
     title: "Kids Tajweed Advance",
     category: "Kids",
     description:
-      "Build upon basic Tajweed with advanced rules, memorization support, and fluency enhancement for young learners.",
+      "<br/><b>Building Upon the Basics: Advanced Tajweed for Kids</b><br/>This course is designed to help young learners who have completed the basic level develop <b>advanced Tajweed skills, fluency, and confidence</b> in recitation. Children will explore more complex rules including <b>Noon Saakin, Tanween, Madd, and Qalqalah</b>, and learn to apply them in short Surahs with proper rhythm and tone. Through interactive exercises, repetition, and engaging recitation practices, learners will strengthen their memorization, articulation, and melodious recitation while keeping the learning process fun and motivating.",
     idealFor:
-      "Students who have completed the Basic Tajweed Level and want to advance their recitation.",
+      "<br/><b>Students who have completed the Kids Basic Tajweed Level</b> and are ready to advance their recitation skills. This course is ideal for children who wish to improve <b>accuracy, fluency, and rhythmic recitation</b>, preparing them for higher-level Quranic studies. Learners will gain confidence in recitation, understand the subtleties of advanced rules, and develop a deeper appreciation for the beauty and precision of the Quran.",
     duration: "8 weeks",
     level: "Advanced",
     instructor: "Ustadha Hafsa",
@@ -126,9 +126,9 @@ export const API = [
     title: "Kids Tarteel Course",
     category: "Kids",
     description:
-      "Teach kids to recite Qur’an in a beautiful and rhythmic tone through easy and fun lessons.",
+      "<br/><b>Beautiful and Rhythmic Recitation for Kids</b><br/>The Kids Tarteel Course is designed to teach children to recite the Quran with <b>melodious tone, rhythm, and expression</b>. Young learners will practice proper pauses, voice modulation, and recitation flow while applying Tajweed rules in short Surahs. Interactive sessions, repetition techniques, and fun exercises ensure that students gain <b>confidence, fluency, and a love for Quranic recitation</b>. This course aims to develop a <b>balanced, expressive, and spiritually engaging recitation style</b> in every child.",
     idealFor:
-      "Young learners who have a basic command of Tajweed and wish to improve fluency and melody.",
+      "<br/><b>Young learners who have a basic command of Tajweed</b> and wish to enhance their recitation with <b>melody, fluency, and expressive Tarteel</b>. This course is perfect for children aiming to recite Quran beautifully while understanding rhythm, tone, and emotional connection to the verses. Learners will gain confidence, recitation skills, and appreciation for Quranic artistry under the guidance of experienced instructors.",
     duration: "10 weeks",
     level: "Intermediate",
     instructor: "Ustadha Fariha",
@@ -151,8 +151,9 @@ export const API = [
     title: "Tafseer Courses",
     category: "Adults",
     description:
-      "Understand the meanings and context of Qur’anic verses with detailed tafseer and reflection lessons.",
-    idealFor: "Women seeking deeper understanding of the Qur'an.",
+      "<br/><b>Understand the Meanings and Context of the Qur'an</b><br/>This Tafseer Course provides a deep and structured understanding of selected Qur'anic verses. Students will explore <b>historical context, word-by-word meaning, and reflective lessons</b> that connect the Quranic message to everyday life. Through interactive discussions, detailed explanations, and guided reflection, learners will develop the ability to comprehend and apply Qur'anic teachings meaningfully.",
+    idealFor:
+      "<br/><b>Women seeking a deeper understanding of the Qur'an</b> and wishing to strengthen their knowledge through guided Tafseer. Ideal for learners who want to <b>reflect on the meanings, context, and life lessons</b> derived from the Quran and apply them in their daily worship and actions.",
     duration: "12 weeks",
     level: "Advanced",
     instructor: "Dr. Qamar",
@@ -175,8 +176,9 @@ export const API = [
     title: "Qur'anic Reflections",
     category: "General",
     description:
-      "Weekly discussions and reflections on Qur’anic verses to connect with the message of Allah.",
-    idealFor: "Anyone who wants to reflect deeply on the Quranic message.",
+      "<br/><b>Weekly Discussions and Reflections on the Quran</b><br/>This course provides a space to reflect on Qur'anic verses, their meanings, and their application in contemporary life. Students will engage in discussions, personal reflections, and guided exercises that strengthen understanding and spiritual connection to Allah's words.",
+    idealFor:
+      "<br/><b>Anyone seeking to reflect deeply on the Quran</b> and apply its teachings meaningfully in their daily lives. Ideal for those who wish to enhance their connection with Allah through contemplation and understanding of His words.",
     duration: "Ongoing",
     level: "All Levels",
     instructor: "Ustadha Areeba",
@@ -198,9 +200,9 @@ export const API = [
     title: "Tahfeezul Qur'an",
     category: "Adults",
     description:
-      "Memorize the complete Qur’an (30 Juz) or selected Surahs with proper Tajweed and revision support.",
+      "<br/><b>Memorize the Complete Qur’an with Precision and Understanding</b><br/>This course guides dedicated learners in memorizing the Qur’an (30 Juz) or selected Surahs with proper Tajweed, pronunciation, and regular revision support. Students will develop memory techniques, recitation fluency, and spiritual reflection as part of a structured long-term program.",
     idealFor:
-      "Dedicated learners aiming for long-term Quran memorization under expert supervision.",
+      "<br/><b>Dedicated learners</b> aiming to memorize the Qur’an with accuracy, retention, and understanding. Suitable for those who seek long-term guidance, personal mentorship, and structured practice to achieve Tahfeez successfully.",
     duration: "Long-term",
     level: "Advanced",
     instructor: "Qari Usman",
@@ -223,9 +225,9 @@ export const API = [
     title: "Salah Course",
     category: "General",
     description:
-      "Perfect Your Prayer — The Key to Peace and Connection with Allah. Learn to perform Salah correctly and meaningfully.",
+      "<b>Perfect Your Prayer — The Key to Peace and Connection with Allah</b><br/>The Salah Course is designed to help learners of all ages understand, perfect, and deeply connect with the most important act of worship, Salah (prayer). This course goes beyond memorization and movements, guiding students to perform Salah with accuracy, understanding, and heartfelt devotion. Through detailed lessons on the meaning of each part of Salah, correct posture, proper recitation, and spiritual reflection, learners gain a deeper appreciation of standing before Allah in prayer. Practical demonstrations, step-by-step guidance, and one-on-one correction ensure that each student develops confidence, focus, and humility in their prayers.",
     idealFor:
-      "Children, teens, and adults (females) who wish to learn Salah from the basics or improve their prayer.",
+      "Children, teens, and adults (females) who wish to learn Salah from the basics or improve their prayer through better understanding and sincere connection with Allah. Ideal for beginners seeking to establish strong prayer habits, as well as for those aiming to enhance their concentration, recitation, and devotion in daily Salah.",
     duration: "4 weeks",
     level: "Basic",
     instructor: "Ustadha Anum",
@@ -237,7 +239,7 @@ export const API = [
       "Step-by-step Salah performance",
       "Meanings and virtues of prayer",
       "Common mistakes and corrections",
-      "How to pray with khushu (focus)",
+      "How to pray with khushu (focus)"
     ],
     price: "PKR 500",
     link: "/courses/salah",
@@ -247,9 +249,9 @@ export const API = [
     title: "Rabbana Duas Course",
     category: "Adults",
     description:
-      "Learn the Heartfelt Prayers from the Quran — explore the beautiful supplications beginning with 'Rabbana'.",
+      "<b>Learn the Heartfelt Prayers from the Quran</b><br/>The Rabbana Duas Course invites learners to explore the most beautiful and powerful supplications in the Quran beginning with 'Rabbana' (Our Lord). Each dua carries deep meanings, heartfelt emotions, and timeless lessons that strengthen our connection with Allah. Through guided explanations, pronunciation practice, and reflection, students not only memorize these duas but also understand their context, purpose, and spiritual impact. Each session helps learners internalize these prayers, transforming them into daily acts of remembrance and gratitude.",
     idealFor:
-      "Learners who wish to connect deeply with the Quran through Rabbana duas.",
+      "Learners of all ages who wish to connect deeply with the Quran, enhance their daily worship, and strengthen their spiritual relationship with Allah through the beautiful Rabbana duas. Perfect for students looking to memorize, understand, and apply Quranic supplications in their daily life with clarity, devotion, and reflection.",
     duration: "6 weeks",
     level: "Basic",
     instructor: "Ustadha Noor",
@@ -261,7 +263,7 @@ export const API = [
       "Word-by-word meaning and Tafseer",
       "Proper recitation with Tajweed",
       "Context and significance",
-      "Applying lessons in daily life",
+      "Applying lessons in daily life"
     ],
     price: "PKR 700",
     link: "/courses/rabbana-duas",
@@ -271,9 +273,9 @@ export const API = [
     title: "Masnoon Duas Course",
     category: "General",
     description:
-      "Live Every Moment with the Sunnah of the Prophet ﷺ — learn authentic daily Masnoon duas with meaning.",
+      "<b>Live Every Moment with the Sunnah of the Prophet ﷺ</b><br/>The Masnoon Duas Course is designed to help learners embrace the daily Sunnah supplications taught by the Prophet Muhammad ﷺ. These authentic duas bring peace, protection, and blessings into every part of life, from morning routines to evening reflections. Through easy memorization, pronunciation guidance, and explanations of meanings, students will learn not only to recite but also understand when, why, and how to use these supplications, turning daily routines into acts of worship and remembrance of Allah.",
     idealFor:
-      "Learners of all ages who wish to fill life with remembrance and gratitude.",
+      "Learners of all ages who wish to strengthen their connection with Allah, follow the beautiful Sunnah of the Prophet ﷺ, and incorporate daily remembrance into their lives. Perfect for anyone seeking to memorize, recite, and understand authentic Masnoon duas for daily activities, travel, meals, and special occasions, while cultivating mindfulness, humility, and gratitude.",
     duration: "5 weeks",
     level: "Basic",
     instructor: "Ustadha Rida",
@@ -285,7 +287,7 @@ export const API = [
       "Authentic daily duas",
       "Pronunciation & translation",
       "Virtues and spiritual benefits",
-      "Making dua with humility",
+      "Making dua with humility"
     ],
     price: "Free",
     link: "/courses/masnoon-dua",
@@ -295,9 +297,9 @@ export const API = [
     title: "Seerat-e-Sahabiyaat",
     category: "General",
     description:
-      "Inspiring Lives of the Noble Women of Islam — explore the biographies of the Sahabiyaat and their devotion to Islam.",
+      "<b>Inspiring Lives of the Noble Women of Islam</b><br/>The Seerat-e-Sahabiyaat course takes learners on a heartfelt journey through the lives of the female companions of the Prophet ﷺ — women of faith, courage, and wisdom whose devotion shaped early Islamic history. Through engaging lessons, historical insights, and reflective discussions, students explore 70 glorious biographies, uncovering how these remarkable women exemplified steadfast belief, sacrifice, and service in the path of Allah. Each lesson draws spiritual lessons from their lives, showing how their faith, patience, and leadership remain relevant and inspiring today.",
     idealFor:
-      "Anyone seeking to strengthen their faith through stories of the Sahabiyaat.",
+      "Anyone seeking to deepen their understanding of Islamic history, strengthen their faith (iman), and draw spiritual inspiration from the exemplary lives of the Sahabiyaat. Ideal for learners who want practical guidance on applying the virtues of these noble women in modern life while enhancing moral, spiritual, and leadership qualities.",
     duration: "10 weeks",
     level: "Intermediate",
     instructor: "Madam Samman",
@@ -309,11 +311,11 @@ export const API = [
       "Life stories of Sahabiyaat",
       "Their roles in spreading Islam",
       "Lessons in patience and leadership",
-      "Modern reflections and applications",
+      "Modern reflections and applications"
     ],
     price: "PKR 1000",
     link: "/courses/seerat-sahabiyaat",
-  },
+  }
 ];
 
 console.log(API);

@@ -39,7 +39,7 @@ const QarzeHasana = () => {
         {qarzeCases.map((caseItem, index) => (
           <div
             key={index}
-            className="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition border-2 border-pink-900"
+            className="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition border-3 border-pink-800"
           >
             <div className="text-4xl mb-3">{caseItem.icon}</div>
             <h3 className="text-lg font-semibold text-pink-900">{caseItem.title}</h3>

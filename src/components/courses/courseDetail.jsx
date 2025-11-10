@@ -23,16 +23,20 @@ const CourseDetail = () => {
         </Link>
 
         {/* Main Section: Text Left, Image Right */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-start gap-10">
+        <div className="flex flex-col lg:flex-row items-start lg:items-start gap-8">
           {/* Left: Text Content */}
-          <div className="flex-1 lg:pl-5"> {/* Added left padding */}
+          <div className="flex-1 lg:pl-5">
             <h1 className="text-4xl font-bold text-pink-800 mb-4">
               {course.title}
             </h1>
 
-            <p className="text-lg leading-relaxed mb-6">{course.description}</p>
+            <p
+              className="text-lg leading-relaxed mb-6 text-justify"
+              dangerouslySetInnerHTML={{ __html: course.description }}
+            />
 
-            <div className="flex flex-wrap gap-3 text-sm mb-8">
+            {/* Level, Duration, Instructor */}
+            <div className="flex flex-wrap gap-3 text-lg mb-8">
               <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-lg">
                 Level: {course.level}
               </span>
@@ -44,21 +48,27 @@ const CourseDetail = () => {
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold mb-2 text-pink-700">
+            {/* Course Outline */}
+            <h3 className="text-lg font-semibold mb-2 text-pink-700">
               Course Outline:
             </h3>
-            <ul className="list-disc list-inside space-y-1 mb-6">
+            <ul className="list-disc list-inside space-y-1 mb-6 text-lg">
               {course.details.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ul>
 
-            <h3 className="text-xl font-semibold mb-2 text-pink-700">
+            {/* Ideal For */}
+            <h3 className="text-lg font-semibold mb-2 text-pink-700">
               Ideal For:
             </h3>
-            <p className="mb-6">{course.idealFor}</p>
+            <p
+              className="mb-6 text-lg text-justify"
+              dangerouslySetInnerHTML={{ __html: course.idealFor }}
+            ></p>
 
-            <p className="text-xl font-semibold">
+            {/* Price */}
+            <p className="text-lg font-semibold">
               <span className="text-gray-700">Price:</span>{" "}
               <span className="text-pink-800">{course.price}</span>
             </p>
@@ -69,7 +79,7 @@ const CourseDetail = () => {
             <img
               src={course.pngImage}
               alt={course.title}
-              className="w-72 sm:w-80 lg:w-[480px] object-contain select-none pointer-events-none" // slightly smaller
+              className="w-72 sm:w-80 lg:w-[480px] object-contain select-none pointer-events-none"
             />
           </div>
         </div>
