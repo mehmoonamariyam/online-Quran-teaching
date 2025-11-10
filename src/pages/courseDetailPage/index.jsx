@@ -1,28 +1,39 @@
 import React from "react";
 import CourseDetail from "../../components/courses/courseDetail";
-import Navbar2 from "../../components/navbar2";
 import Footer from "../../components/footer";
+import Navbar from "../../components/navbar";
+import ScrollToTop from "../../components/scrolltotop";
 
 const CourseDetailPage = () => {
   return (
-    <div className="bg-pink-50 min-h-screen">
-      {/* Navbar */}
-      <div className="relative">
-        <Navbar2 />
+    <div className="bg-pink-50 min-h-screen relative">
+      
+      {/* Navbar with background image */}
+      <div
+        className="relative w-full"
+        style={{
+          backgroundImage: "url('/images/designnn.jpg')", // image for navbar background
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark pink overlay for readability */}
+        <div className="absolute inset-0 bg-pink-900 opacity-20 pointer-events-none"></div>
 
-        {/* Our Courses text inside navbar */}
-        <div className="absolute w-full text-center" style={{ bottom: "40px", zIndex: 10 }}>
-          <h1 className="text-4xl font-bold text-pink-900">Our Courses</h1>
+        {/* Navbar */}
+        <div className="relative z-10">
+          <Navbar />
         </div>
       </div>
 
-      {/* Course Detail container with same left/right margin as cards */}
+      {/* Course Detail container */}
       <div className="px-5 pt-8 max-w-7xl mx-auto">
         <CourseDetail />
       </div>
 
       {/* Footer */}
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

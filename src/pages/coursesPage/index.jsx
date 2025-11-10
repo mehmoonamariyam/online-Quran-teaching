@@ -1,35 +1,27 @@
-import React from "react";
-import Container from "../../components/courses/container";
-import Navbar2 from "../../components/navbar2";
-import Footer from "../../components/footer";
+import DonationHero from '../../components/donationhero'
+import Navbar from '../../components/navbar'
+import QarzeHasana from '../../components/Qarzehasana/qarzehasana'
+import Footer from '../../components/footer'
+import CourseHeader from '../../components/courses/CourseHeader'
+import Container from '../../components/courses/container'
 
-const CoursePage = () => {
+const DonationPage = () => {
   return (
-    <div className="bg-pink-50 min-h-screen"> {/* Body background pink */}
-      {/* Navbar */}
-      <div className="relative">
-        <Navbar2 />
+    <>
+       <div className="relative min-h-screen" style={{
+    backgroundColor: "#F5FAE1",
+    backgroundImage: "url('/images/designnn.jpg')", 
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}>
 
-        {/* “Our Courses” text positioned inside navbar */}
-        <div
-          className="absolute w-full text-center"
-          style={{ bottom: "40px", zIndex: 20 }}
-        >
-          <h1 className="text-4xl font-bold text-pink-900">
-            Our Courses
-          </h1>
-        </div>
-      </div>
-
-      {/* Courses container */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8">
-        <Container />
-      </div>
-
-      {/* Footer */}
-      <Footer />
+    <Navbar/>
+    <CourseHeader/>
     </div>
-  );
-};
+    <Container/>
+    <Footer/>
+    </>
+  )
+}
 
-export default CoursePage;
+export default DonationPage

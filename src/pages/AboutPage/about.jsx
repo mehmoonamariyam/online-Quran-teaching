@@ -8,14 +8,22 @@ import Footer from '../../components/footer'
 
 const AboutPage = () => {
   return (
-   <>
-   <Navbar/>
-   <HeroAbout/>
-   <MissionVision/>
+  <>
+       <div className="relative min-h-screen" style={{
+    backgroundColor: "#F5FAE1",
+    backgroundImage: "url('/images/designnn.jpg')", 
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}>
+    <Navbar/>
+    <HeroAbout/>
+    </div>
+    <MissionVision/>
    <Slider/>
    <HomeTutors/>
    <Footer/>
-   </>
+
+    </>
   )
 }
 

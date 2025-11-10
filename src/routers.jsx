@@ -7,6 +7,8 @@ import LoginPage from "./pages/Login/login"; // from your friend's version
 import DonationPage from "./pages/DonationPage/donation";
 import AboutPage from "./pages/AboutPage/about";
 import SignupPage from "./pages/Login/signup";
+import TutorPage from "./pages/TutorsPage";
+
 
 const RoutersCall = () => {
   return (
@@ -17,11 +19,10 @@ const RoutersCall = () => {
       <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/courses" element={<CoursePage />} />
       <Route path="/courses/:id" element={<CourseDetailPage />} />
-      <Route
-        path="*"
-        element={<p className="text-center mt-20 text-gray-500">Page not found!</p>}
-      />
       <Route path="/donate" element={<DonationPage/>}/>
+      <Route path="/tutor" element={<TutorPage/>}/>
+      <Route path="*"element={<p className="text-center mt-20 text-gray-500">Page not found!</p>}/>
+      
     </Routes>
   );
 };
