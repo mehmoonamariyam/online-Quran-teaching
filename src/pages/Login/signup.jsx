@@ -18,7 +18,7 @@ const SignupPage = () => {
       </div>
 
       {/* Right side – Image */}
-      <div className="hidden md:flex w-1/2.5 place-items-end">
+      <div className="hidden md:flex w-2xl h-2xl place-items-end">
         <img
           src="/images/logins.png"
           alt="Login illustration"
