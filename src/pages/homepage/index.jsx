@@ -18,7 +18,11 @@ const HomePage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
+<<<<<<< Updated upstream
     <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
+=======
+   <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
+>>>>>>> Stashed changes
     <Navbar/>
     <HomeSection/>
     </div>

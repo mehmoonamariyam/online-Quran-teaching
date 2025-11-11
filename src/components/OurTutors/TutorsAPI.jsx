@@ -1,6 +1,4 @@
-// src/tutorsApi.js
 
-// 🧠 Dummy API Simulation
 export const fetchTutors = () => {
   return Promise.resolve([
     {

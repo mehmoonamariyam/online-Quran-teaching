@@ -2,6 +2,11 @@ import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import TutorsHeader from '../../components/OurTutors/TutorsHeader'
 import TutorsCard from '../../components/OurTutors/TutorsCards'
+<<<<<<< Updated upstream
+=======
+import ScrollToTop from '../../components/scrolltotop'
+import TeachersAttributes from '../../components/OurTutors/TeachersAttributes'
+>>>>>>> Stashed changes
 
 const TutorPage = () => {
   return (
@@ -12,10 +17,17 @@ const TutorPage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
+    <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
     <Navbar/>
     <TutorsHeader/>
     </div>
+<<<<<<< Updated upstream
     <TutorsCard/>  
+=======
+    <TutorsCard/>
+   <TeachersAttributes/>
+    <ScrollToTop/>  
+>>>>>>> Stashed changes
     <Footer/>
     </>
   )
