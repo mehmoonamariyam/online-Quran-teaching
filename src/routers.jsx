@@ -5,7 +5,7 @@ import CoursePage from "./pages/coursesPage";
 import CourseDetailPage from "./pages/courseDetailPage";
 import LoginPage from "./pages/Login/login";
 import DonationPage from "./pages/DonationPage/donation";
-import TutorPage from "./pages/Tutors";
+import TutorPage from "./pages/TutorsPage";
 import AboutPage from "./pages/AboutPage/about";
 import SignupPage from "./pages/Login/signup";
 

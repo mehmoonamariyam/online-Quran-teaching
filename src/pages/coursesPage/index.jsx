@@ -4,35 +4,22 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import CoursesHeader from "../../components/courses/CoursesHeader";
 
-const DonationPage = () => {
+const CoursePage = () => {
   return (
     <>
-      {/* Wrapper for header + cards */}
-      <div className="relative">
-        {/* Header image + dark overlay */}
-        <div
-          className="relative w-full"
-          style={{
-            backgroundColor: "#F5FAE1",
-            backgroundImage: "url('/images/designnn.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          
-          <Navbar />
-          <CoursesHeader />
-        </div>
-
-        {/* Tutors Cards Section */}
-        <div className="bg-pink-50 relative z-10 py-14 px-6">
-          <Container />
-        </div>
-      </div>
-
-      <Footer />
+       <div className="relative min-h-screen" style={{
+    backgroundColor: "#F5FAE1",
+    backgroundImage: "url('/images/designnn.jpg')", 
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}>
+    <Navbar/>
+    <CoursesHeader/>
+    </div>
+    <Container/>  
+    <Footer/>
     </>
   );
 };
 
-export default DonationPage;
+export default CoursePage;
