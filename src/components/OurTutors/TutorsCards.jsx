@@ -34,30 +34,14 @@ const TutorsCard = () => {
         const rowBg = rowIndex % 2 === 0 ? "bg-pink-200" : "bg-white";
 
         return (
-<<<<<<< Updated upstream
-          <div key={tutor.id} className={`w-full py-10 ${rowBg}`}>
-            <div className="max-w-5xl mx-auto px-6">
-              <div
-                className={`${cardBg} border-4 border-none rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 flex items-start gap-4`}
-              >
-                {/* Female Image */}
-                <div className="flex-shrink-0 mt-1">
-                  <img 
-                    src={genderImage} 
-                    alt="Female Teacher" 
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                </div>
-=======
           <div key={rowIndex} className={`${rowBg} py-8`}>
             <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {rowTutors.map((tutor, index) => {
+              {rowTutors.map((tutor) => {
                 const cardBg = rowIndex % 2 === 0 ? "bg-white" : "bg-pink-200"; // card color opposite to row
                 const nameColor = "text-pink-900";
                 const textColor = "text-pink-900";
                 const buttonHoverColor = rowIndex % 2 === 0 ? "hover:text-pink-300" : "hover:text-pink-100";
                 const genderImage = "/images/Femaledp.png";
->>>>>>> Stashed changes
 
                 return (
                   <div
