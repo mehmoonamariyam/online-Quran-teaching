@@ -20,9 +20,7 @@ const HomeTutors = () => {
  
 
       <div className="mt-10">
-        <Link
-          to="/tutor"
-          className="bg-pink-900 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-pink-700 transition duration-300"
+        <Link to ="/tutor" className="bg-pink-900 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-pink-700 transition duration-300"
         >
           View All Tutors
         </Link>

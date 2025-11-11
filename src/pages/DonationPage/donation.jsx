@@ -13,7 +13,7 @@ const DonationPage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
-    
+    <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
     <Navbar/>
     <DonationHero/>
     </div>
