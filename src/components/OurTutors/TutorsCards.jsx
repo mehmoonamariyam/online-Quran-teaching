@@ -41,7 +41,7 @@ const TutorsCard = () => {
         const genderImage = "/images/Femaledp.png";
 
         return (
-          <div key={tutor.id} className={`w-full py-10 ${rowBg}`}>
+          <div key={tutor.id} className={`w-full py-8 ${rowBg}`}>
             <div className="max-w-5xl mx-auto px-6">
               <div
                 className={`${cardBg} border-4 border-none rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 flex items-start gap-4`}

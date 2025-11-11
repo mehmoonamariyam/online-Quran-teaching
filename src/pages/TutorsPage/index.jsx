@@ -2,6 +2,7 @@ import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import TutorsHeader from '../../components/OurTutors/TutorsHeader'
 import TutorsCard from '../../components/OurTutors/TutorsCards'
+import ScrollToTop from '../../components/scrolltotop'
 
 const TutorPage = () => {
   return (
@@ -15,7 +16,8 @@ const TutorPage = () => {
     <Navbar/>
     <TutorsHeader/>
     </div>
-    <TutorsCard/>  
+    <TutorsCard/>
+    <ScrollToTop/>  
     <Footer/>
     </>
   )
