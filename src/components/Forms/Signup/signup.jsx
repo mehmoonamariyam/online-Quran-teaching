@@ -9,8 +9,7 @@ const SignupForm = () => {
   const { user, loading, error } = useSelector((state) => state.signup);
 
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -26,8 +25,7 @@ const SignupForm = () => {
 
     // Validation
     if (
-      !form.firstName ||
-      !form.lastName ||
+      !form.name ||
       !form.email ||
       !form.password ||
       !form.confirmPassword
@@ -46,8 +44,7 @@ const SignupForm = () => {
     try {
       await dispatch(
         SignupUser ({
-          firstName: form.firstName,
-          lastName: form.lastName,
+          Name: form.name,
           email: form.email,
           password: form.password,
         })
@@ -65,7 +62,7 @@ const SignupForm = () => {
     <div className="min-h-screen bg-[#e0b9ab] flex justify-center items-center px-4 py-8">
   <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
       <div className="p-0 bg-white rounded-xl max-w-sm mx-auto mt-0">
-      <h2 className="text-pink-900 text-xl font-bold mb-4 pl-25">Sign Up here</h2>
+
       <div> <img src="/images/bismillah.png" alt="Logintop"
           className="w-[400px] h-[90px] items-center pl-6.5" /></div>
 
@@ -75,18 +72,11 @@ const SignupForm = () => {
 
       <form onSubmit={handleSubmit}>
         <input
-          name="firstName"
-          placeholder="First Name"
+          name="name"
+          placeholder="Name"
           value={form.firstName}
           onChange={handleChange}
          className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
-        />
-        <input
-          name="lastName"
-          placeholder="Last Name"
-          value={form.lastName}
-          onChange={handleChange}
-          className="block w-full mb-4 p-0.5 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-none p-2 rounded focus: outline-none focus: ring-2 focus: ring-white"
         />
         <input
           name="email"

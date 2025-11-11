@@ -1,11 +1,12 @@
 import React from 'react'
 import HeroAbout from '../../components/abouthero/hero'
 import Navbar from '../../components/navbar'
-import MissionVision from '../../components/mission/mission'
-import Slider from '../../components/slider/slider'
-import HomeTutors from '../../components/tutors/tutors'
+import Slider from '../../components/homesection/slider'
 import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
+import MissionVision from '../../components/abouthero/mission'
+import HomeTutors from '../../components/abouthero/tutors'
+
 
 const AboutPage = () => {
   return (
@@ -23,7 +24,7 @@ const AboutPage = () => {
     <ScrollToTop/>
     <MissionVision/>
    <Slider/>
-   <HomeTutors/>
+  <HomeTutors/>
    <Footer/>
 
     </>

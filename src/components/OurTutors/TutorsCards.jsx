@@ -36,7 +36,7 @@ const TutorsCard = () => {
         return (
           <div key={rowIndex} className={`${rowBg} py-8`}>
             <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {rowTutors.map((tutor, index) => {
+              {rowTutors.map((tutor) => {
                 const cardBg = rowIndex % 2 === 0 ? "bg-white" : "bg-pink-200"; // card color opposite to row
                 const nameColor = "text-pink-900";
                 const textColor = "text-pink-900";

@@ -8,20 +8,24 @@ import TeachersAttributes from '../../components/OurTutors/TeachersAttributes'
 const TutorPage = () => {
   return (
     <>
-       <div className="relative min-h-screen" style={{
-    backgroundColor: "#F5FAE1",
-    backgroundImage: "url('/images/designnn.jpg')", 
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}>
-    <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
-    <Navbar/>
-    <TutorsHeader/>
-    </div>
-    <TutorsCard/>
-   <TeachersAttributes/>
-    <ScrollToTop/>  
-    <Footer/>
+      <div
+        className="relative min-h-screen"
+        style={{
+          backgroundColor: "#F5FAE1",
+          backgroundImage: "url('/images/designnn.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
+        <Navbar />
+        <TutorsHeader />
+      </div>
+
+      <TutorsCard />
+      <TeachersAttributes />
+      <ScrollToTop />
+      <Footer />
     </>
   )
 }

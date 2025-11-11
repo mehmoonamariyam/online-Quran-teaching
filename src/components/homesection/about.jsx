@@ -5,7 +5,8 @@ const AboutUs = () => {
     <>
       <section className="relative py-20 px-8 md:px-16 bg-[#ffffff] overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
-          {/* Image Section */}
+    
+      
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-80 h-80 md:w-96 md:h-96">
               <div className="absolute inset-0 rounded-full opacity-20 blur-2xl"></div>
@@ -17,7 +18,8 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* Text Section */}
+         
+
           <div className="md:w-1/2 text-center md:text-left">
          <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-6 relative inline-block">
         About Us
