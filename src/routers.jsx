@@ -8,6 +8,7 @@ import DonationPage from "./pages/DonationPage/donation";
 import TutorPage from "./pages/TutorsPage";
 import AboutPage from "./pages/AboutPage/about";
 import SignupPage from "./pages/Login/signup";
+import EnrollPage from "./pages/EnrollPage/enroll";
 
 const RoutersCall = () => {
   return (
@@ -17,8 +18,8 @@ const RoutersCall = () => {
       <Route path="/login" element={<LoginPage />} />     !---Login Button----! 
       <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/signin" element = {<LoginPage/>}/>   !---Go to Login page after signup---!
+      <Route path="/enroll" element = {<EnrollPage/>}/>   !---Go to enroll page after click on enrollnow---!
       <Route path="/courses" element={<CoursePage />} />
-      {/* <Route path="/logcourse" element={<CoursePage/>}/> */}
       
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route path="/donate" element={<DonationPage />} />
