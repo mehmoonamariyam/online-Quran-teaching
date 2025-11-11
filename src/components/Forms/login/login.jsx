@@ -43,38 +43,36 @@ const LoginForm = () => {
           NABA-AL-JANNAH
         </h1>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <input
-            type="text"
-            placeholder="Enter your username"
-            className="w-full p-2 border rounded text-black placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            disabled={loading}
-          />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="w-full p-2 border rounded text-[#fe4653] placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            disabled={loading}
-          />
-          <button
-            type="submit"
-            className={`w-full py-2 rounded text-white font-bold transition ${
-              loading ? "bg-blue-300 cursor-not-allowed" : "bg-pink-950 hover:bg-blue-600"
-            }`}
-            disabled={loading}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-
-        {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
+    {/* Form */}
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <input
+        type="text"
+        placeholder="Enter your username"
+        className="w-full p-2 border rounded text-black placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+        disabled={loading}
+      />
+      <input
+        type="password"
+        placeholder="Enter your password"
+        className="w-full p-2 border rounded text-[#fe4653] placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        disabled={loading}
+      />
+      <button
+        type="submit"
+        className={`w-full py-2 rounded text-white font-bold transition ${
+          loading ? "bg-pink-300 cursor-not-allowed" : "bg-pink-950 hover:bg-pink-700"
+        }`}
+        disabled={loading}
+      >
+        {loading ? "Logging in..." : "Login"}
+      </button>
+    </form>
 
         <p className="text-sm text-center mt-4">
           Don’t have an account?{" "}

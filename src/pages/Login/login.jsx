@@ -18,9 +18,6 @@ const LoginPage = () => {
         {/* Left side – Login Form */}
         <div className="flex flex-col justify-start md:justify-center items-center w-full md:w-1/2 mt-8 mb-10">
           <div className="w-full max-w-md mt-6 md:mt-0">
-            <h1 className="text-3xl font-bold text-center mb-6 text-pink-950">
-              Welcome Back 👋
-            </h1>
             <LoginForm />
           </div>
         </div>
