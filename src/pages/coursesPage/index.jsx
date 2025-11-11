@@ -3,6 +3,7 @@ import Container from "../../components/courses/container";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import CoursesHeader from "../../components/courses/CoursesHeader";
+import ScrollToTop from "../../components/scrolltotop";
 
 const CoursePage = () => {
   return (
@@ -17,7 +18,9 @@ const CoursePage = () => {
     <CoursesHeader/>
     </div>
     <Container/>  
+    <ScrollToTop/>
     <Footer/>
+    
     </>
   );
 };

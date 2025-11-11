@@ -18,6 +18,7 @@ const HomePage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
+   
     <Navbar/>
     <HomeSection/>
     </div>
