@@ -3,6 +3,7 @@ import Container from "../../components/courses/container";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import CoursesHeader from "../../components/courses/CoursesHeader";
+import ScrollToTop from "../../components/scrolltotop";
 
 const DonationPage = () => {
   return (
@@ -19,9 +20,10 @@ const DonationPage = () => {
             backgroundPosition: "center",
           }}
         >
-          
+         <div className="absolute inset-0 bg-pink-200 opacity-30"></div> 
           <Navbar />
           <CoursesHeader />
+          <ScrollToTop/>
         </div>
 
         {/* Tutors Cards Section */}

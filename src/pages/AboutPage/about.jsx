@@ -5,6 +5,7 @@ import MissionVision from '../../components/mission/mission'
 import Slider from '../../components/slider/slider'
 import HomeTutors from '../../components/tutors/tutors'
 import Footer from '../../components/footer'
+import ScrollToTop from '../../components/scrolltotop'
 
 const AboutPage = () => {
   return (
@@ -15,9 +16,11 @@ const AboutPage = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}>
+    <div className="absolute inset-0 bg-pink-200 opacity-30"></div>
     <Navbar/>
     <HeroAbout/>
     </div>
+    <ScrollToTop/>
     <MissionVision/>
    <Slider/>
    <HomeTutors/>
