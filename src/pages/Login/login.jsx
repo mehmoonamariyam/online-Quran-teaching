@@ -1,5 +1,7 @@
 import React from "react";
 import LoginForm from "../../components/Forms/login/login";
+import EnrollPage from "../EnrollPage/enroll";
+
 
 const LoginPage = () => {
   return (
@@ -31,7 +33,9 @@ const LoginPage = () => {
           />
         </div>
       </div>
+
     </div>
+  
   );
 };
 

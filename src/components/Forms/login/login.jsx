@@ -5,40 +5,43 @@ import { Link, useNavigate} from 'react-router-dom';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    const { user, loading, error } = useSelector((state) => state.login || state);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    useEffect(()=>{
-        if (user) {
-      setUsername();
-      setPassword();
-    }
-  }, [user]);
+  const navigate = useNavigate();
+  const { user, loading, error } = useSelector((state) => state.login || state);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
+  useEffect(() => {
+    if (user) {
+      setUsername("");
+      setPassword("");
+      // Navigate to course page after successful login
+      navigate("/logcourse");
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser({ username, password }));
   };
   return (
  <>
   <div className="min-h-screen bg-[#e0b9ab] flex justify-center items-center px-4 py-8">
-  <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-    {/* Images */}
-    <img
-      src="/images/bismillah.png"
-      alt="Logintop"
-      className="w-full max-w-[400px] h-auto mx-auto mb-4"
-    />
-    <img
-      src="/images/loginq.png"
-      alt="Logintop"
-      className="w-full max-w-[350px] h-auto mx-auto mb-4"
-    />
-    
-    <h1 className="text-pink-950 text-3xl font-bold text-center mb-6">
-      NABA-AL-JANNAH
-    </h1>
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+        {/* Images */}
+        <img
+          src="/images/bismillah.png"
+          alt="Bismillah"
+          className="w-full max-w-[400px] h-auto mx-auto mb-4"
+        />
+        <img
+          src="/images/loginq.png"
+          alt="Login Illustration"
+          className="w-full max-w-[350px] h-auto mx-auto mb-4"
+        />
+
+        <h1 className="text-pink-950 text-3xl font-bold text-center mb-6">
+          NABA-AL-JANNAH
+        </h1>
 
     {/* Form */}
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -71,15 +74,20 @@ const LoginForm = () => {
       </button>
     </form>
 
-    <p className="text-sm text-center mt-4">
-      Don’t have an account?{" "}
-      <Link to="/signup" className="text-pink-950 hover:underline">
-        Signup
-      </Link>
-    </p>
-  </div>
-</div>
+        <p className="text-sm text-center mt-4">
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-pink-950 hover:underline">
+            Signup
+          </Link></p>
 
+           <p className="text-sm text-center mt-4">
+          Don’t have an account?{" "}
+          <Link to="/enroll" className="text-pink-950 hover:underline">
+            Enroll-Now
+          </Link>
+        </p>
+      </div>
+    </div>
 
     </>
   )
