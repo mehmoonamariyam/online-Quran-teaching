@@ -45,7 +45,7 @@ const LoginForm = () => {
       <input
         type="text"
         placeholder="Enter your username"
-        className="w-full p-2 border rounded text-black placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
+        className="w-full p-2 border rounded text-black placeholder-[#C48E84] focus:outline-none focus:ring-1 focus:ring-pink-950"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
@@ -54,7 +54,7 @@ const LoginForm = () => {
       <input
         type="password"
         placeholder="Enter your password"
-        className="w-full p-2 border rounded text-[#fe4653] placeholder-[#C48E84] focus:outline-none focus:ring-2 focus:ring-pink-950"
+        className="w-full p-2 border rounded text-[#000000] placeholder-[#C48E84] focus:outline-none focus:ring-1 focus:ring-pink-950"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
@@ -63,7 +63,7 @@ const LoginForm = () => {
       <button
         type="submit"
         className={`w-full py-2 rounded text-white font-bold transition ${
-          loading ? "bg-pink-300 cursor-not-allowed" : "bg-pink-950 hover:bg-pink-700"
+          loading ? "bg-pink-300 cursor-not-allowed" : "bg-pink-900 hover:bg-pink-700"
         }`}
         disabled={loading}
       >
