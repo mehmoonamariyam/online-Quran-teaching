@@ -30,19 +30,19 @@ const TeachersAttributes = () => {
     <section className="py-20 bg-pink-50 flex flex-col items-center">
       
       {/* Section Title */}
-      <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-12 relative inline-block text-center">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-12 text-center">
         Why Choose Our Teachers
         <span className="block w-20 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
       </h2>
 
       {/* Attributes Layout */}
-      <div className="flex flex-row items-center justify-center gap-1 lg:gap-23 w-full max-w-6xl">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-6xl">
 
-        {/* Left Column (2 attributes stacked) */}
-        <div className="flex flex-col justify-between gap-1">
+        {/* Left Column (Top 2 attributes) */}
+        <div className="flex flex-col sm:flex-row lg:flex-col justify-center items-center gap-6 order-1">
           {attributes.slice(0, 2).map((attr, index) => (
-            <div key={index} className="flex flex-col items-center text-center max-w-[180px]">
-              <img src={attr.icon} alt={attr.title} className="w-45 h-45 " />
+            <div key={index} className="flex flex-col items-center text-center max-w-[220px]">
+              <img src={attr.icon} alt={attr.title} className="w-45 h-45 mb-3" />
               <h3 className="text-pink-900 font-semibold text-lg mb-2">{attr.title}</h3>
               <p className="text-pink-900 text-sm">{attr.description}</p>
             </div>
@@ -50,19 +50,19 @@ const TeachersAttributes = () => {
         </div>
 
         {/* Center Image */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 order-2">
           <img
             src={centerImage}
             alt="Teacher"
-            className="w-111 h-111 object-cover"
+            className="w-75 h-75 md:w-111 md:h-111 object-cover"
           />
         </div>
 
-        {/* Right Column (2 attributes stacked) */}
-        <div className="flex flex-col justify-between gap-1">
+        {/* Right Column (Bottom 2 attributes) */}
+        <div className="flex flex-col sm:flex-row lg:flex-col justify-center items-center gap-6 order-3">
           {attributes.slice(2, 4).map((attr, index) => (
-            <div key={index} className="flex flex-col items-center text-center max-w-[180px]">
-              <img src={attr.icon} alt={attr.title} className="w-45 h-45" />
+            <div key={index} className="flex flex-col items-center text-center max-w-[220px]">
+              <img src={attr.icon} alt={attr.title} className="w-45 h-45 mb-3" />
               <h3 className="text-pink-900 font-semibold text-lg mb-2">{attr.title}</h3>
               <p className="text-pink-900 text-sm">{attr.description}</p>
             </div>

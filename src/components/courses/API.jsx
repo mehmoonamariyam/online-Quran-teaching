@@ -12,7 +12,7 @@ export const API = [
     instructor: "Ustadha Fatima",
     image: "/images/Courseimages/1st.jpg",
     textOnImage:
-      "<b>Basic<br>Tajweed</b><br><span style='font-weight:normal;'>1st Level</span>",
+      "<b>Basic<br>Tajweed</b>",
     pngImage: "/images/Courseimages/1stpng.png",
     details: [
       "Correct pronunciation of Arabic letters (Makharij)",
@@ -22,6 +22,11 @@ export const API = [
     ],
     price: "Free",
     link: "/courses/tajweed-basic",
+    classesPerWeek: "3 classes per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly recitation tests",
   },
   {
     id: 2,
@@ -36,7 +41,7 @@ export const API = [
     instructor: "Ustadha Hina",
     image: "/images/Courseimages/2nd.jpg",
     textOnImage:
-      "<b>Advance<br>Tajweed</b><br><span style='font-weight:normal;'>2nd Level</span>",
+      "<b>Advance<br>Tajweed</b>",
     pngImage: "/images/Courseimages/2ndpng.png",
     details: [
       "Advanced Tajweed concepts including Ghunnah, Idghaam with Ghunnah, Ikhfaa Shafawi, and Qalqalah Kubra",
@@ -46,6 +51,11 @@ export const API = [
     ],
     price: "PKR 1500",
     link: "/courses/tajweed-advance",
+        classesPerWeek: "4 classes per week",
+    classDuration: "40 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly pronunciation tests",
   },
   {
     id: 3,
@@ -60,7 +70,7 @@ export const API = [
     instructor: "Ustadha Mehwish",
     image: "/images/Courseimages/3rd.jpg",
     textOnImage:
-      "<b>Tarteel<br>Course</b><br><span style='font-weight:normal;'>3rd Level</span>",
+      "<b>Tarteel<br>Course</b>",
     pngImage: "/images/Courseimages/3rdpng.png",
     details: [
       "Principles and purpose of Tarteel in Quranic recitation",
@@ -70,6 +80,11 @@ export const API = [
     ],
     price: "PKR 1000",
     link: "/courses/tajweed-tarteel",
+    classesPerWeek: "3 classes per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly recitation tests",
   },
   {
     id: 4,
@@ -84,7 +99,7 @@ export const API = [
     instructor: "Ustadha Maryam",
     image: "/images/Courseimages/kids1.png",
     textOnImage:
-      "<b>Kids Basic <br> Tajweed</b><br><span style='font-weight:normal;'>1st Level</span>",
+      "<b>Kids Basic <br> Tajweed</b>",
     pngImage: "/images/Courseimages/1stkidspng.png",
     details: [
       "Arabic alphabet learning",
@@ -95,6 +110,11 @@ export const API = [
     ],
     price: "Free",
     link: "/courses/kids-tajweed-basic",
+        classesPerWeek: "5 classes per week",
+    classDuration: "60 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly revision and memory tests",
   },
   {
     id: 5,
@@ -109,7 +129,7 @@ export const API = [
     instructor: "Ustadha Hafsa",
     image: "/images/Courseimages/kids2.png",
     textOnImage:
-      "<b>Kids Advance <br>Tajweed</b><br><span style='font-weight:normal;'>2nd Level</span>",
+      "<b>Kids Advance <br>Tajweed</b>",
     pngImage: "/images/Courseimages/1stkidspng.png",
     details: [
       "Revision of basic rules",
@@ -120,6 +140,11 @@ export const API = [
     ],
     price: "PKR 1000",
     link: "/courses/kids-tajweed-advance",
+       classesPerWeek: "3 classes per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly Tajweed application tests",
   },
   {
     id: 6,
@@ -134,7 +159,7 @@ export const API = [
     instructor: "Ustadha Fariha",
     image: "/images/Courseimages/kids3.png",
     textOnImage:
-      "<b>Kids Tarteel<br> Course</b><br><span style='font-weight:normal;'>3rd Level</span>",
+      "<b>Kids Tarteel<br> Course</b>",
     pngImage: "/images/Courseimages/1stkidspng.png",
     details: [
       "Listening and repeating technique",
@@ -145,6 +170,11 @@ export const API = [
     ],
     price: "PKR 800",
     link: "/courses/kids-tarteel",
+      classesPerWeek: "2 classes per week",
+    classDuration: "60 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Monthly comprehension quizzes",
   },
   {
     id: 7,
@@ -159,7 +189,7 @@ export const API = [
     instructor: "Dr. Qamar",
     image: "/images/Courseimages/tafseer.png",
     textOnImage:
-      "<b>Tafseer<br>Course</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Tafseer<br>Course</b>",
     pngImage: "/images/Courseimages/reflectionpng.png",
     details: [
       "Introduction to Tafseer",
@@ -170,6 +200,11 @@ export const API = [
     ],
     price: "PKR 2000",
     link: "/courses/tafseer",
+    classesPerWeek: "2 classes per week",
+    classDuration: "60 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Monthly comprehension tests",
   },
   {
     id: 8,
@@ -184,7 +219,7 @@ export const API = [
     instructor: "Ustadha Areeba",
     image: "/images/Courseimages/reflection.jpg",
     textOnImage:
-      "<b>Qur'anic<br>Reflection</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Qur'anic<br>Reflection</b>",
     pngImage: "/images/Courseimages/reflectionpng.png",
     details: [
       "Thematic Qur’anic study",
@@ -194,6 +229,11 @@ export const API = [
     ],
     price: "Free",
     link: "/courses/quranic-reflections",
+    classesPerWeek: "1 class per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly reflections",
   },
   {
     id: 9,
@@ -208,7 +248,7 @@ export const API = [
     instructor: "Qari Usman",
     image: "/images/Courseimages/tehfeez.png",
     textOnImage:
-      "<b>Tahfeez-ul<br>Qur'an</b><br><span style='font-weight:normal;'>30th Para & Selected Surahs</span>",
+      "<b>Tahfeez-ul<br>Qur'an</b>",
     pngImage: "/images/Courseimages/reflectionpng.png",
     details: [
       "Full 30 Juz memorization",
@@ -219,6 +259,11 @@ export const API = [
     ],
     price: "PKR 3000",
     link: "/courses/tahfeezul-quran",
+     classesPerWeek: "5 classes per week",
+    classDuration: "60 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly memorization tests",
   },
   {
     id: 10,
@@ -233,7 +278,7 @@ export const API = [
     instructor: "Ustadha Anum",
     image: "/images/Courseimages/salah.jpg",
     textOnImage:
-      "<b>Salah<br>Course</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Salah<br>Course</b>",
     pngImage: "/images/Courseimages/salahpng.png",
     details: [
       "Step-by-step Salah performance",
@@ -243,6 +288,11 @@ export const API = [
     ],
     price: "PKR 500",
     link: "/courses/salah",
+    classesPerWeek: "2 classes per week",
+    classDuration: "30 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly practice tests",
   },
   {
     id: 11,
@@ -257,7 +307,7 @@ export const API = [
     instructor: "Ustadha Noor",
     image: "/images/Courseimages/duas.jpg",
     textOnImage:
-      "<b>Rabbana Duas<br>Course</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Rabbana Duas<br>Course</b>",
     pngImage: "/images/Courseimages/duapng.png",
     details: [
       "Word-by-word meaning and Tafseer",
@@ -267,6 +317,11 @@ export const API = [
     ],
     price: "PKR 700",
     link: "/courses/rabbana-duas",
+    classesPerWeek: "3 classes per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly recitation tests",
   },
   {
     id: 12,
@@ -281,7 +336,7 @@ export const API = [
     instructor: "Ustadha Rida",
     image: "/images/Courseimages/masnoon.jpg",
     textOnImage:
-      "<b>Masnoon Dua<br>Course</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Masnoon<br>Dua Course</b>",
     pngImage: "/images/Courseimages/masnonpng.png",
     details: [
       "Authentic daily duas",
@@ -291,6 +346,11 @@ export const API = [
     ],
     price: "Free",
     link: "/courses/masnoon-dua",
+    classesPerWeek: "3 classes per week",
+    classDuration: "30 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly recitation tests",
   },
   {
     id: 13,
@@ -305,7 +365,7 @@ export const API = [
     instructor: "Madam Samman",
     image: "/images/Courseimages/sahabiyat.jpg",
     textOnImage:
-      "<b>Seerat e<br>Sahabiyaat</b><br><span style='font-weight:normal;'>For Females</span>",
+      "<b>Seerat e<br>Sahabiyaat</b><br>",
     pngImage: "/images/Courseimages/sahabiyatpng.png",
     details: [
       "Life stories of Sahabiyaat",
@@ -315,6 +375,11 @@ export const API = [
     ],
     price: "PKR 1000",
     link: "/courses/seerat-sahabiyaat",
+    classesPerWeek: "2 classes per week",
+    classDuration: "45 minutes each",
+    platform: "Google Meet",
+    language: "Urdu & English",
+    assessment: "Weekly reflections",
   }
 ];
 
