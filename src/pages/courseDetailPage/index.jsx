@@ -16,7 +16,8 @@ const CourseDetailPage = () => {
       <div className="px-5 pt-8 max-w-7xl mx-auto">
         <CourseDetail />
       </div>
-      <ScrollToTop/>
+
+      <ScrollToTop />
       {/* Footer */}
       <Footer />
     </div>

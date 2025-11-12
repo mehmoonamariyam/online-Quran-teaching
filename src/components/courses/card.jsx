@@ -21,7 +21,7 @@ const Card = ({ data }) => {
           <div className="absolute inset-0 bg-white/0 group-hover:bg-white/25 transition duration-500 rounded-xl"></div>
           <div className="absolute inset-0 flex items-center justify-start px-4 sm:px-6">
             <div
-              className="text-pink-800 font-extrabold leading-tight drop-shadow-sm max-w-[65%] whitespace-pre-line transition-colors duration-500 group-hover:text-pink-700 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+              className="text-pink-800 font-extrabold leading-tight drop-shadow-sm max-w-[65%] whitespace-pre-line transition-colors duration-500 group-hover:text-pink-700 text-base sm:text-xl md:text-xl lg:text-xl xl:text-2xl"
               dangerouslySetInnerHTML={{ __html: item.textOnImage }}
             />
           </div>
