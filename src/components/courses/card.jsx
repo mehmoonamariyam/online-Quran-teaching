@@ -1,13 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Card = ({ data }) => {
+const Card = () => {
   const navigate = useNavigate();
+  const courses = useSelector((state) => state.courses.courses); // get from slice
+
+  if (!courses || courses.length === 0) {
+    return <p className="text-center text-gray-500">No courses available.</p>;
+  }
 
   return (
     <>
-    
-      {data?.map((item) => (
+      {courses.map((item) => (
         <div
           key={item.id}
           onClick={() => navigate(`/courses/${item.id}`)}
