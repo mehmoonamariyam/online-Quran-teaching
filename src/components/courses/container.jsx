@@ -1,10 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Card from "./card";
 
 const Container = () => {
-  const courses = useSelector((state) => state.courses.courses);
-
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 py-12">
       
@@ -16,7 +13,7 @@ const Container = () => {
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Card data={courses} />
+        <Card /> {/* no need to pass data */}
       </div>
     </div>
   );
