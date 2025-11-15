@@ -9,6 +9,10 @@ import TutorPage from "./pages/TutorsPage";
 import AboutPage from "./pages/AboutPage/about";
 import SignupPage from "./pages/Login/signup";
 import EnrollPage from "./pages/EnrollPage/enroll";
+import DashboardLayout from "./admin/layout";
+
+
+
 
 const RoutersCall = () => {
   return (
@@ -24,6 +28,8 @@ const RoutersCall = () => {
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route path="/donate" element={<DonationPage />} />
       <Route path="/tutors" element={<TutorPage />} />
+      <Route path="/dashboard" element={<DashboardLayout/>} />
+
       <Route
         path="*"
         element={
