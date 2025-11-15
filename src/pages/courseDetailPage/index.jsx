@@ -7,18 +7,13 @@ import ScrollToTop from "../../components/scrolltotop";
 const CourseDetailPage = () => {
   return (
     <div className="bg-pink-50 min-h-screen">
-      {/* Navbar */}
       <div className="relative">
         <Navbar />
       </div>
-
-      {/* Course Detail container */}
       <div className="px-5 pt-8 max-w-7xl mx-auto">
         <CourseDetail />
       </div>
-
       <ScrollToTop />
-      {/* Footer */}
       <Footer />
     </div>
   );
