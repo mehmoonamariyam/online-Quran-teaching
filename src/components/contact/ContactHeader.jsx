@@ -1,6 +1,6 @@
 import React from "react";
 
-const DonationHero = () => {
+const ContactHeader = () => {
   return (
     <>
 <section className="relative bg-linear-to-r py-20 px-6 md:px-16">
@@ -8,15 +8,15 @@ const DonationHero = () => {
     {/* Left: Text */}
   <div className="md:w-1/2 text-center md:text-left">
   <h1 className="text-4xl md:text-5xl font-extrabold text-pink-900 mb-6">
-    Support the Cause — Donate Today
+    Get in Touch<br/> We’re Here to Help
   </h1>
+
   <p className="text-lg md:text-xl text-pink-900 mb-4 max-w-xl">
-    Helping Others, Uplifting Lives through Sadaqah Jariyah and our Qarze Hasana initiative.
+    Have questions, need guidance, or want to enroll? Our team is always ready to assist you with anything you need.
   </p>
+
   <p className="text-lg md:text-xl text-pink-900 max-w-xl">
-    Every contribution, big or small, brings hope to deserving individuals and families. 
-    Your donation helps widows, orphans, students, and those in urgent need of support, 
-    making a lasting impact in their lives.
+    Reach out to us anytime — we’re committed to providing you with quick, friendly, and helpful support.
   </p>
 </div>
 
@@ -24,7 +24,7 @@ const DonationHero = () => {
     {/* Right: Image */}
     <div className="md:w-1/2 flex justify-center md:justify-end">
       <img
-        src="/images/donate.png"  // replace with your image path
+        src="/images/cardd.png"  // replace with your image path
         alt="Donation Illustration"
         className="w-full max-w-sm md:max-w-md rounded-3xl shadow-2xl border-4 border-pink-900 bg-white"
       />
@@ -35,4 +35,4 @@ const DonationHero = () => {
   );
 };
 
-export default DonationHero;
+export default ContactHeader;

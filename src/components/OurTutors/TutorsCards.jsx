@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { fetchTutors } from "./TutorsAPI";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+// TutorsAPI is in the same folder, so path is correct
+import { getTutors } from "../../store/slice/TutorSlice";
 
 const TutorsCard = () => {
-  const [tutors, setTutors] = useState([]);
+  const dispatch = useDispatch();
+  const { tutors, loading, error } = useSelector((state) => state.tutors);
   const [expanded, setExpanded] = useState({});
 
   useEffect(() => {
-    fetchTutors().then((data) => setTutors(data));
-  }, []);
+    dispatch(getTutors());
+  }, [dispatch]);
 
   const toggleExpand = (id) => {
-    setExpanded((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // Group tutors in pairs for rows
+  if (loading) return <p className="text-center mt-10">Loading tutors...</p>;
+  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+
+  // Group tutors in pairs
   const rows = [];
   for (let i = 0; i < tutors.length; i += 2) {
     rows.push(tutors.slice(i, i + 2));
@@ -24,7 +27,6 @@ const TutorsCard = () => {
 
   return (
     <section className="min-h-screen py-14">
-      {/* Our Tutors Title */}
       <h2 className="text-4xl font-extrabold text-center text-pink-900 mb-12 relative">
         Our Tutors
         <span className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-pink-500 to-pink-900 rounded-full"></span>
@@ -37,10 +39,11 @@ const TutorsCard = () => {
           <div key={rowIndex} className={`${rowBg} py-8`}>
             <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               {rowTutors.map((tutor) => {
-                const cardBg = rowIndex % 2 === 0 ? "bg-white" : "bg-pink-200"; // card color opposite to row
+                const cardBg = rowIndex % 2 === 0 ? "bg-white" : "bg-pink-200";
                 const nameColor = "text-pink-900";
                 const textColor = "text-pink-900";
-                const buttonHoverColor = rowIndex % 2 === 0 ? "hover:text-pink-300" : "hover:text-pink-100";
+                const buttonHoverColor =
+                  rowIndex % 2 === 0 ? "hover:text-pink-300" : "hover:text-pink-100";
                 const genderImage = "/images/Femaledp.png";
 
                 return (

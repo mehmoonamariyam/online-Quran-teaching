@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
   const path = location.pathname;
-  const dispatch = useDispatch();
-  // const { user } = useSelector ((state) => state.login);
 
-  // const buttonStatus =  () => {
-  //   dipatch
-  // }
+  // Pages where navbar should be transparent
+  const isTransparentPage =
+    path === "/" ||
+    path === "/donate" ||
+    path === "/courses" ||
+    path === "/tutors" ||
+    path === "/about" ||
+    path === "/contact" ||
+    path.startsWith("/courses/"); // Covers course detail pages
 
   const [open, setOpen] = useState(false);
 
@@ -19,7 +22,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className="relative z-20 px-6 py-0 flex flex-col items-center transition-all duration-300 bg-transparent"
+      className={`relative z-10 px-6 py-0 flex flex-col items-center transition-all duration-300 ${
+        isTransparentPage ? "bg-transparent" : "bg-[#F5FAE1] shadow-md"
+      }`}
     >
       {/* Logo + Menu */}
       <div className="relative w-full flex justify-between items-center mt-2 z-10">

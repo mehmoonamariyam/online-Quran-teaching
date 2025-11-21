@@ -34,20 +34,18 @@ const QarzeHasana = () => {
   </p>
 </div>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-  {qarzeCases.map((caseItem, index) => (
-    <div
-      key={index}
-      className="w-60 bg-white p-4 rounded-xl shadow-md flex flex-col items-center text-center border border-pink-900"
-    >
-      <div className="flex items-center justify-center w-14 h-14 mb-3 rounded-full bg-pink-100 text-2xl">
-        {caseItem.icon}
+      {/* Cases Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {qarzeCases.map((caseItem, index) => (
+          <div
+            key={index}
+            className="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center hover:shadow-lg transition border-3 border-pink-800"
+          >
+            <div className="text-4xl mb-3">{caseItem.icon}</div>
+            <h3 className="text-lg font-semibold text-pink-900">{caseItem.title}</h3>
+          </div>
+        ))}
       </div>
-      <h3 className="text-md md:text-lg font-semibold text-pink-900">{caseItem.title}</h3>
-    </div>
-  ))}
-</div>
-
       <div className="max-w-3xl mx-auto mb-8 mt-20 text-center">
   <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-4 relative inline-block">
     Donate via Mobile Wallets

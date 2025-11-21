@@ -9,11 +9,7 @@ import TutorPage from "./pages/TutorsPage";
 import AboutPage from "./pages/AboutPage/about";
 import SignupPage from "./pages/Login/signup";
 import EnrollPage from "./pages/EnrollPage/enroll";
-import AdminDashboard from "./admin/layout";
-
-
-
-
+import ContactPage from "./pages/ContactPage";
 
 const RoutersCall = () => {
   return (
@@ -25,12 +21,10 @@ const RoutersCall = () => {
       <Route path="/signin" element = {<LoginPage/>}/>   !---Go to Login page after signup---!
       <Route path="/enroll" element = {<EnrollPage/>}/>   !---Go to enroll page after click on enrollnow---!
       <Route path="/courses" element={<CoursePage />} />
-      
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="/courses/:id" element={<CourseDetailPage />} />
       <Route path="/donate" element={<DonationPage />} />
       <Route path="/tutors" element={<TutorPage />} />
-      <Route path="/dashboard" element={<AdminDashboard/>} />
-
       <Route
         path="*"
         element={
