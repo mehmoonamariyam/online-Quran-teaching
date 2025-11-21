@@ -1,10 +1,10 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";  // ✅ <-- Add this line
 import { useForm } from 'react-hook-form';
-import { submitEnroll } from '../../../store/slice/FormSlices/enroll';
-import { API as courses } from "../../../components/courses/API";
+
+// import { API as courses } from "../../../components/courses/API";
 
 const schema = yup.object().shape({
   firstName: yup.string().trim().required("First name is required"),
@@ -31,12 +31,22 @@ const defaultValues = {
 };
 
 const EnrollmentForm = () => {
-
+const [courses, setCourses] = useState([]);
    const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: yupResolver(schema),
     defaultValues,
     mode: "onTouched",
   });
+
+  useEffect(() => {
+    const fetchCourses = async() => {
+      const res = await fetch ('http://localhost:8080/api/courses');
+      const data = await res.json();
+      return setCourses(data);
+    };
+    fetchCourses();
+  }, []);
+
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);

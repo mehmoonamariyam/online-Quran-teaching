@@ -22,12 +22,13 @@ const CoursesHeader = () => {
 
           {/* Right: Image */}
           <div className="md:w-1/2 flex justify-center md:justify-end">
-            <img
-              src="/images/guide.png"  // replace with your courses image path
-              alt="Our Courses"
-              className="w-full max-w-sm md:max-w-md rounded-3xl shadow-2xl border-4 border-pink-900 bg-white"
+           <img
+           src="/images/guide.png"
+            alt="About"
+            className="w-11/12 max-w-xs md:max-w-sm rounded-3xl shadow-2xl border-4 border-pink-900 bg-white"
             />
-          </div>
+
+    </div>
         </div>
       </section>
     </>
