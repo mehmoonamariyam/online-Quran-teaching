@@ -1,0 +1,38 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/homepage";
+import CoursePage from "./pages/coursesPage";
+import CourseDetailPage from "./pages/courseDetailPage";
+import LoginPage from "./pages/Login/login";
+import DonationPage from "./pages/DonationPage/donation";
+import TutorPage from "./pages/TutorsPage";
+import AboutPage from "./pages/AboutPage/about";
+import SignupPage from "./pages/Login/signup";
+import EnrollPage from "./pages/EnrollPage/enroll";
+import ContactPage from "./pages/ContactPage";
+
+const RoutersCall = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/login" element={<LoginPage />} />     !---Login Button----! 
+      <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/signin" element = {<LoginPage/>}/>   !---Go to Login page after signup---!
+      <Route path="/enroll" element = {<EnrollPage/>}/>   !---Go to enroll page after click on enrollnow---!
+      <Route path="/courses" element={<CoursePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/courses/:id" element={<CourseDetailPage />} />
+      <Route path="/donate" element={<DonationPage />} />
+      <Route path="/tutors" element={<TutorPage />} />
+      <Route
+        path="*"
+        element={
+          <p className="text-center mt-20 text-gray-500">Page not found!</p>
+        }
+      />
+    </Routes>
+  );
+};
+
+export default RoutersCall;
