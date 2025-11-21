@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InfoTable from "./InfoTable"; // Keep if you’re still using it elsewhere
+import { fetchSingleCourse } from "../../store/slice/courseSlice";
+
+
+
+
 
 const CourseDetail = () => {
   const { id } = useParams();
-  const courses = useSelector((state) => state.courses.courses);
-  const course = courses.find((item) => item.id === parseInt(id));
+  const dispatch = useDispatch();
+  const { currentCourse: course, loading } = useSelector(
+    (state) => state.courses
+  );
+ useEffect(() => {
+  dispatch(fetchSingleCourse(id));
+}, [id]);
 
   if (!course) {
     return <p className="text-center text-gray-500 mt-20">Course not found!</p>;
@@ -83,7 +93,7 @@ const CourseDetail = () => {
       </tr>
       <tr className="bg-white border-b border-pink-200">
         <td className="font-semibold py-2 pl-6 pr-4">Class Duration:</td>
-        <td className="pl-4">{course.classDuration || "60 minutes each"}</td>
+        <td className="pl-4">{course.classduration || "60 minutes each"}</td>
       </tr>
       <tr className="bg-pink-100 border-b border-pink-200">
         <td className="font-semibold py-2 pl-6 pr-4">Platform:</td>
@@ -112,7 +122,7 @@ const CourseDetail = () => {
           <h3 className="text-xl font-semibold mb-2 text-pink-700">Ideal For:</h3>
           <p
             className="text-lg leading-relaxed mb-6 text-justify"
-            dangerouslySetInnerHTML={{ __html: course.idealFor }}
+            dangerouslySetInnerHTML={{ __html: course.idealfor }}
           />
         </div>
 

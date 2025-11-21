@@ -1,4 +1,4 @@
-import React from "react";
+
 import Container from "../../components/courses/container";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";

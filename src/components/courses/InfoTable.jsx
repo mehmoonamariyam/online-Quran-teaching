@@ -3,7 +3,7 @@ import React from "react";
 
 const InfoTable = ({ course }) => {
   return (
-    <div className="flex-none lg:w-[27rem] w-full bg-white rounded-xl shadow p-5">
+    <div className="flex-none lg:w-108 w-full bg-white rounded-xl shadow p-5">
       {/* Heading */}
       <h3 className="text-xl font-semibold text-pink-800 mb-4 text-center">
         Classes Details
