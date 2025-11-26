@@ -1,12 +1,5 @@
-<<<<<<< Updated upstream
-import React, { useEffect, useState } from 'react'
 
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";  // ✅ <-- Add this line
-import { useForm } from 'react-hook-form';
 
-// import { API as courses } from "../../../components/courses/API";
-=======
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,7 +7,7 @@ import * as yup from "yup";  // ✅ <-- Add this line
 import { useForm } from 'react-hook-form';
 import { submitEnroll } from '../../../store/slice/FormSlices/enroll';
 import { API as courses } from "../../../components/courses/API";
->>>>>>> Stashed changes
+
 
 const schema = yup.object().shape({
   firstName: yup.string().trim().required("First name is required"),
