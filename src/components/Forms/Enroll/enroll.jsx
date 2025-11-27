@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
 
+
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";  // ✅ <-- Add this line
 import { useForm } from 'react-hook-form';
+import { submitEnroll } from '../../../store/slice/FormSlices/enroll';
+import { API as courses } from "../../../components/courses/API";
 
-// import { API as courses } from "../../../components/courses/API";
 
 const schema = yup.object().shape({
   firstName: yup.string().trim().required("First name is required"),
@@ -56,8 +59,9 @@ const [courses, setCourses] = useState([]);
 
 
     return (
-         <div className="max-w-xl mx-auto bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Book a Free Trial Class</h2>
+         <div className="bg-white max-w-xl mx-auto shadow-md rounded-lg p-6">
+       
+      {/* <h2 className="text-2xl font-semibold mb-4 text-center">Book a Free Trial Class</h2> */}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex gap-3">
@@ -149,7 +153,7 @@ const [courses, setCourses] = useState([]);
             {isSubmitting ? "Sending..." : "Request Free Trial"}
           </button>
 
-          <div className="text-sm text-gray-600">We will contact you to schedule the class.</div>
+          <div className="text-sm text-gray-600">We will contact you to schedule the class via call.</div>
         </div>
       </form>
     </div>
