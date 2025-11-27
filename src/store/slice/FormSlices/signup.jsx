@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const SignupUser = createAsyncThunk( "signup",   async (userData) => {
-    const res = await fetch("https://dummyjson.com/users/add", {
+    const res = await fetch("http://localhost:8080/signup", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            firstName: 'Muhammad',
-            lastName: 'Ovi',
-            age: 250,
+            username: userData.username,
+            email: userData.email,
+            password: userData.password
         })
 
     })

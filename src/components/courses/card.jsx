@@ -13,9 +13,10 @@ const Card = () => {
   return (
     <>
       {courses.map((item) => (
-        <div
-          key={item.id}
-          onClick={() => navigate(`/courses/${item.id}`)}
+         
+      <div
+          key={item._id}
+          onClick={() => navigate(`/courses/${item._id}`)}
           className="relative overflow-hidden rounded-xl cursor-pointer group border-4 border-pink-800 shadow-md hover:shadow-xl transition-all duration-300 w-[90%] mx-auto"
         >
           <img

@@ -15,12 +15,18 @@ const CourseDetail = () => {
     (state) => state.courses
   );
  useEffect(() => {
-  dispatch(fetchSingleCourse(id));
+  if (id) {
+    dispatch(fetchSingleCourse(id));
+  }
 }, [id]);
 
-  if (!course) {
-    return <p className="text-center text-gray-500 mt-20">Course not found!</p>;
-  }
+if (loading) {
+  return <p className="text-center text-gray-500 mt-20">Loading course...</p>;
+}
+
+if (!course) {
+  return <p className="text-center text-gray-500 mt-20">Course not found!</p>;
+}
 
   return (
     <div className="min-h-screen bg-pink-50 text-gray-800">

@@ -9,7 +9,7 @@ const SignupForm = () => {
   const { user, loading, error } = useSelector((state) => state.signup);
 
   const [form, setForm] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -23,7 +23,7 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.name || !form.email || !form.password || !form.confirmPassword) {
+    if (!form.username || !form.email || !form.password || !form.confirmPassword) {
       setFormError("All fields are required");
       return;
     }
@@ -33,20 +33,30 @@ const SignupForm = () => {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setFormError("Invalid email address");
+      return;
+    }
+
     setFormError("");
 
     try {
-      await dispatch(
+      const data = await dispatch(
         SignupUser({
-          Name: form.name,
+          username: form.username,
           email: form.email,
           password: form.password,
         })
       ).unwrap();
+      console.log(data);
 
-      navigate("/signin");
+      localStorage.setItem("token", data.token);
+
+      navigate("/login");
     } catch (err) {
-      setFormError(err || "Signup failed");
+      const message = typeof err === 'string' ? err : (err?.message || String(err));
+  setFormError(message);
     }
   };
 
@@ -77,9 +87,9 @@ const SignupForm = () => {
           {/* Signup Form */}
           <form onSubmit={handleSubmit}>
             <input
-              name="name"
+              name="username"
               placeholder="Username"
-              value={form.name}
+              value={form.username}
               onChange={handleChange}
               className="block w-full mb-4 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-pink-900 border p-2 rounded focus:outline-none focus:ring-1 focus:ring-pink-900"
             />
@@ -108,8 +118,11 @@ const SignupForm = () => {
             />
 
             {(formError || error) && (
-              <p className="text-red-500 mt-2">{formError || error}</p>
+              <p className="text-red-500 mt-2">
+                {formError || (typeof error === 'string' ? error : error?.message || 'Signup failed')}
+              </p>
             )}
+
 
             <button
               type="submit"

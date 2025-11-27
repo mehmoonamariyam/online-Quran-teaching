@@ -1,8 +1,9 @@
 import React from "react";
-import CourseDetail from "../../components/courses/courseDetail";
+
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import ScrollToTop from "../../components/scrolltotop";
+import CourseDetail from "../../components/courses/courseDetail";
 
 const CourseDetailPage = () => {
   return (
@@ -11,7 +12,7 @@ const CourseDetailPage = () => {
         <Navbar />
       </div>
       <div className="px-5 pt-8 max-w-7xl mx-auto">
-        <CourseDetail />
+        <CourseDetail/>
       </div>
       <ScrollToTop />
       <Footer />

@@ -11,12 +11,14 @@ export const fetchCourses = createAsyncThunk("courses",
 ) ;
 
 export const fetchSingleCourse = createAsyncThunk(
-  "courses/singlecourses",
+  "courses/fetchSingleCourse",
   async (id) => {
     const res = await fetch(`http://localhost:8080/api/courses/${id}`);
+    if (!res.ok) throw new Error("Course not found");
     return await res.json();
   }
 );
+
 
 const initialState = {
   courses: [],
@@ -53,11 +55,14 @@ const courseSlice = createSlice({
       state.loading = false;
       state.error = "Failed to fetch courses";
       })
-    .addCase(fetchSingleCourse.pending, (state) => { state.loading = true; })
-    .addCase(fetchSingleCourse.fulfilled, (state, action) => {
-      state.loading = false;
-       state.currentCourse = action.payload;
-    })
+    .addCase(fetchSingleCourse.pending, (state) => {
+  state.loading = true;
+  state.currentCourse = null;
+})
+.addCase(fetchSingleCourse.fulfilled, (state, action) => {
+  state.loading = false;
+  state.currentCourse = action.payload;
+})
      .addCase(fetchSingleCourse.rejected, (state) => {
       state.loading = false;
       state.error = "Failed to fetch course";
