@@ -9,7 +9,7 @@ import tutorsSlice from "./slice/TutorSlice";
 
 export const store = configureStore({
   reducer: {
-    
+    courses: courseReducer,
     login: LoginSlice.reducer,
     signup: SignupSlice.reducer,
     enroll: enrollSlice.reducer,
