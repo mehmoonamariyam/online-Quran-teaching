@@ -86,6 +86,9 @@ const SignupForm = () => {
 
           {/* Signup Form */}
           <form onSubmit={handleSubmit}>
+            {/* <div>
+              {error.username && (
+          <p className="text-red-500 text-sm mb-1">{error.username}</p>)} */}
             <input
               name="username"
               placeholder="Username"
@@ -93,6 +96,11 @@ const SignupForm = () => {
               onChange={handleChange}
               className="block w-full mb-4 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-pink-900 border p-2 rounded focus:outline-none focus:ring-1 focus:ring-pink-900"
             />
+            {/* </div>
+            <div>
+                {error.username && (
+          <p className="text-red-500 text-sm mb-1">{error.username}</p>)} */}
+          
             <input
               name="email"
               placeholder="Email"
@@ -100,6 +108,9 @@ const SignupForm = () => {
               onChange={handleChange}
               className="block w-full mb-4 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-pink-900 border p-2 rounded focus:outline-none focus:ring-1 focus:ring-pink-900"
             />
+              {/* </div>
+              <div>{error.username && (
+          <p className="text-red-500 text-sm mb-1">{error.username}</p>)} */}
             <input
               type="password"
               name="password"
@@ -108,6 +119,10 @@ const SignupForm = () => {
               onChange={handleChange}
               className="block w-full mb-4 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-pink-900 border p-2 rounded focus:outline-none focus:ring-1 focus:ring-pink-900"
             />
+            {/* </div>
+
+            <div>{error.username && (
+          <p className="text-red-500 text-sm mb-1">{error.username}</p>)} */}
             <input
               type="password"
               name="confirmPassword"
@@ -116,7 +131,7 @@ const SignupForm = () => {
               onChange={handleChange}
               className="block w-full mb-4 bg-[#f8f4f4] text-black placeholder-[#C48E84] border-pink-900 border p-2 rounded focus:outline-none focus:ring-1 focus:ring-pink-900"
             />
-
+{/* </div> */}
             {(formError || error) && (
               <p className="text-red-500 mt-2">
                 {formError || (typeof error === 'string' ? error : error?.message || 'Signup failed')}
