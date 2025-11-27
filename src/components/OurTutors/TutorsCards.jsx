@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// TutorsAPI is in the same folder, so path is correct
 import { getTutors } from "../../store/slice/TutorSlice";
 
 const TutorsCard = () => {
   const dispatch = useDispatch();
-  const { tutors, loading, error } = useSelector((state) => state.tutors);
+  const { tutors = [], loading = false, error = null } = useSelector(
+    (state) => state.tutors || {}
+  );
   const [expanded, setExpanded] = useState({});
 
   useEffect(() => {
     dispatch(getTutors());
   }, [dispatch]);
 
-  const toggleExpand = (id) => {
-    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  const toggleExpand = (_id) => {
+    setExpanded((prev) => ({ ...prev, [_id]: !prev[_id] }));
   };
 
   if (loading) return <p className="text-center mt-10">Loading tutors...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (!tutors.length) return <p className="text-center mt-10">No tutors available.</p>;
 
   // Group tutors in pairs
   const rows = [];
@@ -48,7 +50,7 @@ const TutorsCard = () => {
 
                 return (
                   <div
-                    key={tutor.id}
+                    key={tutor._id}
                     className={`${cardBg} border-4 border-none rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 flex items-start gap-4`}
                   >
                     <div className="flex-shrink-0 mt-1">
@@ -65,14 +67,14 @@ const TutorsCard = () => {
                       </h3>
 
                       <p className={`${textColor} leading-relaxed`}>
-                        {expanded[tutor.id] ? tutor.details : tutor.shortInfo}
+                        {expanded[tutor._id] ? tutor.details : tutor.shortInfo}
                       </p>
 
                       <button
-                        onClick={() => toggleExpand(tutor.id)}
+                        onClick={() => toggleExpand(tutor._id)}
                         className={`mt-3 inline-block font-semibold ${textColor} ${buttonHoverColor} hover:underline transition-all`}
                       >
-                        {expanded[tutor.id] ? "Show Less" : "Show More"}
+                        {expanded[tutor._id] ? "Show Less" : "Show More"}
                       </button>
                     </div>
                   </div>
