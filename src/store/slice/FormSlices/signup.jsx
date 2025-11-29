@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const SignupUser = createAsyncThunk( "signup",   async (userData) => {
+export const SignupUser = createAsyncThunk( "signup",   async (userData, {rejectWithValue}) => {
     const res = await fetch("http://localhost:8080/signup", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -11,8 +11,11 @@ export const SignupUser = createAsyncThunk( "signup",   async (userData) => {
         })
 
     })
-    if (!res.ok) throw new Error("Signup failed try again");
     const data = await res.json();
+    if (!res.ok) {
+        return rejectWithValue(data.message);
+      }
+    
     return data;
 });
 
