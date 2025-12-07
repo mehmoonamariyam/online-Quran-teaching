@@ -14,8 +14,8 @@ const LoginForm = () => {
     if (user) {
       setUsername("");
       setPassword("");
-      // Navigate to course page after successful login
-      navigate("/logcourse");
+      
+      navigate("/courses");
     }
   }, [user, navigate]);
 
@@ -72,6 +72,7 @@ const LoginForm = () => {
       >
         {loading ? "Logging in..." : "Login"}
       </button>
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </form>
 
         <p className="text-sm text-center mt-4">

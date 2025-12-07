@@ -19,6 +19,31 @@ export const fetchSingleCourse = createAsyncThunk(
   }
 );
 
+export const addCourse = createAsyncThunk(
+  "courses/addcourse",
+  async(courseData) => {
+    const res = await fetch('http://localhost:8080/api/courses', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+       body: JSON.stringify(courseData),
+    })
+    return await res.json();
+  }
+)
+
+export const updateCourse = createAsyncThunk(
+  "courses/update",
+  async ({ id, updatedData }) => {
+    const res = await fetch(`http://localhost:8080/api/courses/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedData)
+    });
+    return await res.json();
+  }
+);
 
 const initialState = {
   courses: [],
@@ -56,17 +81,36 @@ const courseSlice = createSlice({
       state.error = "Failed to fetch courses";
       })
     .addCase(fetchSingleCourse.pending, (state) => {
-  state.loading = true;
-  state.currentCourse = null;
-})
-.addCase(fetchSingleCourse.fulfilled, (state, action) => {
-  state.loading = false;
-  state.currentCourse = action.payload;
-})
-     .addCase(fetchSingleCourse.rejected, (state) => {
+      state.loading = true;
+      state.currentCourse = null;
+      })
+    .addCase(fetchSingleCourse.fulfilled, (state, action) => {
+      state.loading = false;
+      state.currentCourse = action.payload;
+      })
+    .addCase(fetchSingleCourse.rejected, (state) => {
       state.loading = false;
       state.error = "Failed to fetch course";
-    });
+      })
+     .addCase(addCourse.pending, (state) => {
+      state.loading = true;
+      })
+    .addCase(addCourse.fulfilled, (state, action) => {
+      state.loading = false;
+      state.courses.push = action.payload;
+      })
+    .addCase(addCourse.rejected, (state) => {
+      state.loading = false;
+      state.error = "Failed to add course";
+      }) 
+    .addCase(updateCourse.fulfilled, (state, action) => {
+    state.loading = false;
+    state.currentCourse = action.payload;
+    const index = state.courses.findIndex(c => c._id === action.payload._id);
+    if (index !== -1) {
+      state.courses[index] = action.payload;
+    }
+  });
   }
 });
 

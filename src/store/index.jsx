@@ -3,13 +3,14 @@ import LoginSlice from "./slice/FormSlices/login";
 import SignupSlice from "./slice/FormSlices/signup";
 import enrollSlice from "./slice/FormSlices/enroll";
 import tutorsSlice from "./slice/TutorSlice";
-import courseReducer from "./slice/courseSlice";
+import courseSlice from "./slice/courseSlice";
+// import courseReducer from "./slice/courseSlice";
 
 
 
 export const store = configureStore({
   reducer: {
-    courses : courseReducer,
+    courses : courseSlice.reducer,
     login: LoginSlice.reducer,
     signup: SignupSlice.reducer,
     enroll: enrollSlice.reducer,

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
-        const response = await fetch("https://dummyjson.com/auth/login", {
+        const response = await fetch("http://localhost:8080/login/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -15,9 +15,8 @@ export const loginUser = createAsyncThunk(
         });
         const data = await response.json();
 
-        // If request fails , reject
+    
         if (!data.token) {
-        // API returned something but no token → invalid credentials
         return rejectWithValue(data.message || "Invalid login credentials");
       }
 
@@ -48,7 +47,8 @@ export const LoginSlice = createSlice({
                 })
                 .addCase(loginUser.fulfilled, (state, action) => {
                     state.loading = false;
-                    state.user = action.payload;
+                    state.user = action.payload.user;
+                    localStorage.setItem("token", action.payload.token);
                 })
                 .addCase(loginUser.rejected, (state, action) => {
                     state.loading = false;
