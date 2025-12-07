@@ -3,8 +3,9 @@ import LoginSlice from "./slice/FormSlices/login";
 import SignupSlice from "./slice/FormSlices/signup";
 import enrollSlice from "./slice/FormSlices/enroll";
 import tutorsSlice from "./slice/TutorSlice";
-import courseReducer from "./slice/courseSlice";
+
 import reviewSlice from "./slice/ReviewSlice";
+import courseSlice from "./slice/courseSlice";
 
 
 
