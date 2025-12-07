@@ -1,12 +1,9 @@
-
-
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";  // ✅ <-- Add this line
+import * as yup from "yup";
 import { useForm } from 'react-hook-form';
 import { submitEnroll } from '../../../store/slice/FormSlices/enroll';
-
 
 const schema = yup.object().shape({
   firstName: yup.string().trim().required("First name is required"),
@@ -14,9 +11,9 @@ const schema = yup.object().shape({
   email: yup.string().trim().email("Enter a valid email").required("Email is required"),
   countryCode: yup.string().required(),
   phone: yup.string().trim().required("Phone is required").matches(/^[0-9\s\-()+]+$/, "Invalid phone number"),
+  age: yup.number().typeError("Age must be a number").required("Age is required").min(1).max(120),
+  gender: yup.string().required("Gender is required"),
   course: yup.string().required("Please choose a course"),
-  preferredDays: yup.string().nullable(),
-  preferredTime: yup.string().nullable(),
   notes: yup.string().nullable(),
 });
 
@@ -26,137 +23,206 @@ const defaultValues = {
   email: "",
   countryCode: "+92",
   phone: "",
+  age: "",
+  gender: "",
   course: "",
-  preferredDays: "",
-  preferredTime: "",
   notes: "",
 };
 
 const EnrollmentForm = () => {
-const [courses, setCourses] = useState([]);
-   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+  const dispatch = useDispatch();
+  const { loading, success, error } = useSelector((state) => state.enroll);
+
+  const [courses, setCourses] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [countryCode, setCountryCode] = useState("+92");
+
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: yupResolver(schema),
     defaultValues,
     mode: "onTouched",
   });
 
+  // Fetch courses
   useEffect(() => {
-    const fetchCourses = async() => {
-      const res = await fetch ('http://localhost:8080/api/courses');
-      const data = await res.json();
-      return setCourses(data);
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch('http://localhost:8080/api/courses');
+        const data = await res.json();
+        setCourses(data);
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+      }
     };
     fetchCourses();
   }, []);
 
+  // Fetch countries dynamically
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const res = await fetch("https://restcountries.com/v3.1/all?fields=name,idd,cca2");
+        const data = await res.json();
+        const mapped = data
+          .map((c, index) => ({
+            name: c.name.common,
+            dial: c.idd?.root ? c.idd.root + (c.idd?.suffixes?.[0] || '') : "",
+            code: c.cca2 || index,
+          }))
+          .filter(c => c.dial);
+        setCountries(mapped);
 
-  const onSubmit = (data) => {
-    console.log("Form submitted:", data);
-    alert("Form submitted! Check console for data.");
+        // Set default country based on browser locale
+        const region = new Intl.DateTimeFormat().resolvedOptions().locale.split('-')[1];
+        const userCountry = mapped.find(c => c.code === region);
+        if (userCountry) setCountryCode(userCountry.dial);
+      } catch (err) {
+        console.error("Failed to fetch countries", err);
+      }
+    };
+    fetchCountries();
+  }, []);
+
+  const onSubmit = async (data) => {
+    dispatch(submitEnroll(data));
     reset(defaultValues);
   };
 
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full">
+      <h2 className="text-2xl font-bold text-center text-pink-900 mb-4">Enrollment Form</h2>
 
-    return (
-         <div className="bg-white max-w-xl mx-auto shadow-md rounded-lg p-6">
-       
-      {/* <h2 className="text-2xl font-semibold mb-4 text-center">Book a Free Trial Class</h2> */}
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="flex gap-3">
-          <div className="flex-1">
-            <label className="block text-sm font-medium">First name</label>
-            <input
-              {...register("firstName")}
-              className={`mt-1 block w-full rounded border px-3 py-2 ${errors.firstName ? "border-red-400" : "border-gray-300"}`}
-            />
-            {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
-          </div>
-
-          <div className="flex-1">
-            <label className="block text-sm font-medium">Last name</label>
-            <input {...register("lastName")} className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-3">
-          <div className="col-span-2">
-            <label className="block text-sm font-medium">Email</label>
-            <input
-              type="email"
-              {...register("email")}
-              className={`mt-1 block w-full rounded border px-3 py-2 ${errors.email ? "border-red-400" : "border-gray-300"}`}
-            />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Country code</label>
-            <select {...register("countryCode")} className="mt-1 block w-full rounded border border-gray-300 px-2 py-2">
-              <option value="+92">+92</option>
-              <option value="+91">+91</option>
-              <option value="+1">+1</option>
-              <option value="+44">+44</option>
-              <option value="+61">+61</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium">Phone number</label>
+      {/* First Name & Last Name */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex-1">
+          <label className="block text-sm font-medium">First Name</label>
           <input
-            {...register("phone")}
-            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.phone ? "border-red-400" : "border-gray-300"}`}
-            placeholder="e.g. 3001234567"
+            {...register("firstName")}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.firstName ? "border-red-400" : "border-gray-300"}`}
           />
-          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
+          {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
+        </div>
+
+        <div className="flex-1">
+          <label className="block text-sm font-medium">Last Name</label>
+          <input {...register("lastName")} className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" />
+        </div>
+      </div>
+
+      {/* Email & Country Code */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="col-span-2">
+          <label className="block text-sm font-medium">Email</label>
+          <input
+            type="email"
+            {...register("email")}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.email ? "border-red-400" : "border-gray-300"}`}
+          />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Course</label>
+          <label className="block text-sm font-medium">Country Code</label>
           <select
-            {...register("course")}
-            className={`mt-1 block w-full rounded border px-2 py-2 ${errors.course ? "border-red-400" : "border-gray-300"}`}
+            {...register("countryCode")}
+            value={countryCode}
+            onChange={(e) => setCountryCode(e.target.value)}
+            className="mt-1 block w-full rounded border border-gray-300 px-2 py-2"
           >
-            <option value="">Choose a course</option>
-            {courses.map(c => (
-              <option key={c.id} value={c.title}>{c.title}</option>
+            {countries.map((c, index) => (
+              <option key={c.code + index} value={c.dial}>
+                {c.name} ({c.dial})
+              </option>
             ))}
           </select>
-          {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course.message}</p>}
+        </div>
+      </div>
+
+      {/* Phone Number */}
+      <div>
+        <label className="block text-sm font-medium">Phone Number</label>
+        <input
+          {...register("phone")}
+          className={`mt-1 block w-full rounded border px-3 py-2 ${errors.phone ? "border-red-400" : "border-gray-300"}`}
+          placeholder="e.g. 3001234567"
+        />
+        {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
+      </div>
+
+      {/* Age & Gender */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex-1">
+          <label className="block text-sm font-medium">Age</label>
+          <input
+            type="number"
+            {...register("age")}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.age ? "border-red-400" : "border-gray-300"}`}
+          />
+          {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age.message}</p>}
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className="block text-sm font-medium">Preferred days</label>
-            <input {...register("preferredDays")} placeholder="e.g. Mon, Wed, Fri" className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Preferred time</label>
-            <input {...register("preferredTime")} placeholder="e.g. 6:00 PM (UTC+5)" className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium">Notes / Additional info</label>
-          <textarea {...register("notes")} rows={3} className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" placeholder="Tell us about student's age, previous experience, etc." />
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`px-4 py-2 rounded font-semibold text-white ${isSubmitting ? "bg-gray-400" : "bg-pink-950 hover:bg-pink-700"}`}
+        <div className="flex-1">
+          <label className="block text-sm font-medium">Gender</label>
+          <select
+            {...register("gender")}
+            className={`mt-1 block w-full rounded border px-2 py-2 ${errors.gender ? "border-red-400" : "border-gray-300"}`}
           >
-            {isSubmitting ? "Sending..." : "Request Free Trial"}
-          </button>
-
-          <div className="text-sm text-gray-600">We will contact you to schedule the class via call.</div>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender.message}</p>}
         </div>
-      </form>
-    </div>
-    )
-}
+      </div>
 
-export default EnrollmentForm
+      {/* Course */}
+      <div>
+        <label className="block text-sm font-medium">Course</label>
+        <select
+          {...register("course")}
+          className={`mt-1 block w-full rounded border px-2 py-2 ${errors.course ? "border-red-400" : "border-gray-300"}`}
+        >
+          <option value="">Choose a course</option>
+          {courses.map((c) => (
+            <option key={c.id} value={c.title}>
+              {c.title}
+            </option>
+          ))}
+        </select>
+        {errors.course && <p className="text-red-500 text-sm mt-1">{errors.course.message}</p>}
+      </div>
+
+      {/* Notes */}
+      <div>
+        <label className="block text-sm font-medium">Notes / Additional Info</label>
+        <textarea
+          {...register("notes")}
+          rows={3}
+          className="mt-1 block w-full rounded border border-gray-300 px-3 py-2"
+          placeholder="Tell us about student’s experience, interests, or any special needs"
+        />
+      </div>
+
+      {/* Success/Error */}
+      {success && <p className="text-green-600 font-semibold">{success}</p>}
+      {error && <p className="text-red-600 font-semibold">{error}</p>}
+
+      {/* Submit Button */}
+      <div className="flex flex-col sm:flex-row items-center gap-3">
+        <button
+          type="submit"
+          disabled={isSubmitting || loading}
+          className={`px-4 py-2 rounded font-semibold text-white ${isSubmitting || loading ? "bg-gray-400" : "bg-pink-950 hover:bg-pink-700"}`}
+        >
+          {isSubmitting || loading ? "Sending..." : "Submit"}
+        </button>
+        <div className="text-sm text-gray-600 mt-2 sm:mt-0">
+          We will contact you to schedule the class via WhatsApp or Email.
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export default EnrollmentForm;

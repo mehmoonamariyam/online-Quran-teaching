@@ -1,12 +1,22 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addReview, fetchReviews } from "../../store/slice/ReviewSlice";
+
 
 const ReviewSection = () => {
+  const dispatch = useDispatch();
+  const { reviews } = useSelector((state) => state.reviews);
+
   const [name, setName] = useState("");
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [error, setError] = useState("");
-  const [reviews, setReviews] = useState([]);
   const [current, setCurrent] = useState(0);
+
+  // Fetch reviews from backend on mount
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
 
   // AUTO SLIDE INFINITE LOOP
   useEffect(() => {
@@ -17,7 +27,7 @@ const ReviewSection = () => {
     return () => clearInterval(interval);
   }, [reviews]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !review.trim() || rating === 0) {
       setError("Please fill all fields including rating.");
@@ -33,8 +43,9 @@ const ReviewSection = () => {
     }
 
     setError("");
-    const newReview = { id: Date.now(), name: name.trim(), review: review.trim(), rating };
-    setReviews([...reviews, newReview]);
+    // Send to backend via Redux
+    dispatch(addReview({ name: name.trim(), review: review.trim(), rating }));
+
     setName("");
     setReview("");
     setRating(0);
@@ -57,7 +68,10 @@ const ReviewSection = () => {
       {error && <p className="text-red-600 font-semibold mb-4 text-center">{error}</p>}
 
       {/* FORM */}
-      <form onSubmit={handleSubmit} className="bg-pink-50 shadow-md p-4 rounded-xl mb-10 max-w-xl mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-pink-50 shadow-md p-4 rounded-xl mb-10 max-w-xl mx-auto"
+      >
         <label className="block text-lg font-semibold text-pink-900 mb-1">Your Name</label>
         <input
           type="text"
@@ -110,13 +124,12 @@ const ReviewSection = () => {
             const opacity = pos === 0 ? 1 : 0.6;
             const zIndex = pos === 0 ? 10 : 1;
 
-            // Use responsive width for cards
-            const cardWidth = window.innerWidth < 640 ? 250 : 280; // 250px for mobile, 280 for desktop
+            const cardWidth = window.innerWidth < 640 ? 250 : 280;
             const translateX = pos * cardWidth;
 
             return (
               <div
-                key={item.id}
+                key={item._id || item.id}
                 className="absolute bg-white shadow-lg border border-pink-200 rounded-xl p-4 flex flex-col justify-between transition-all duration-500"
                 style={{
                   width: cardWidth,
