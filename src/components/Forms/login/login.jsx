@@ -11,13 +11,18 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    if (user) {
-      setUsername("");
-      setPassword("");
-      
-      navigate("/courses");
-    }
-  }, [user, navigate]);
+  if (!user) return;
+
+  setUsername("");
+  setPassword("");
+
+  if (user.role === "admin") {
+    navigate("/admin/dashboard");
+  } else {
+    navigate("/courses");
+  }
+}, [user, navigate]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

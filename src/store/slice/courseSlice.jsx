@@ -45,6 +45,16 @@ export const updateCourse = createAsyncThunk(
   }
 );
 
+export const deleteCourse = createAsyncThunk(
+  "courses/delete",
+  async (id) => {
+    const res = await fetch(`http://localhost:5000/api/courses/${id}`, {
+      method: "DELETE",
+    });
+    return { id, message: await res.json() };
+  }
+);
+
 const initialState = {
   courses: [],
   currentCourse: null,
@@ -55,18 +65,7 @@ const initialState = {
 const courseSlice = createSlice({
   name: "courses",
   initialState,
-  reducers: {
-    // addCourse: (state, action) => {
-    //   state.courses.push(action.payload);
-    // },
-    // updateCourse: (state, action) => {
-    //   const index = state.courses.findIndex((c) => c.id === action.payload.id);
-    //   if (index >= 0) state.courses[index] = action.payload;
-    // },
-    // deleteCourse: (state, action) => {
-    //   state.courses = state.courses.filter((c) => c.id !== action.payload);
-    // }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
     .addCase(fetchCourses.pending , (state)=>{
@@ -110,9 +109,13 @@ const courseSlice = createSlice({
     if (index !== -1) {
       state.courses[index] = action.payload;
     }
+  })
+    .addCase(deleteCourse.fulfilled, (state, action) => {
+      state.loading = false;
+      state.courses = state.courses.filter(
+      (course) => course._id !== action.payload.id
+        );
   });
   }
 });
-
-// export const { addCourse, updateCourse, deleteCourse } = courseSlice.actions;
 export default courseSlice;

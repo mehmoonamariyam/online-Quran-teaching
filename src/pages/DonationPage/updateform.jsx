@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { updateCourse, fetchSingleCourse } from "../redux/courseSlice";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleCourse, updateCourse } from "../../store/slice/courseSlice";

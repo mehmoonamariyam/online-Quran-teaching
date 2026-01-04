@@ -4,8 +4,8 @@ import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
 import QarzeHasana from '../../components/donationhero/qarzehasana'
-import CourseAddForm from './form'
-import AdminEditCourse from './updateform'
+// import CourseAddForm from './form'
+// import AdminEditCourse from './updateform'
 
 const DonationPage = () => {
   return (
