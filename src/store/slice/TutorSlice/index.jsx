@@ -1,53 +1,107 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// --- Async thunks ---
+const API_URL = "http://localhost:8080/api/tutors";
 
-// Fetch all tutors
-export const getTutors = createAsyncThunk("tutors/fetchTutors", async () => {
-  const res = await fetch("http://localhost:8080/api/tutors");
-  const data = await res.json();
-  // Map _id to id for frontend usage
-  return data.map((t) => ({ ...t, id: t._id }));
-});
+/* ================= FETCH ALL TUTORS ================= */
+export const getTutors = createAsyncThunk(
+  "tutors/fetchAll",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("Failed to fetch tutors");
+      return await res.json();
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
 
-// Add new tutor
+/* ================= ADD TUTOR ================= */
 export const addTutor = createAsyncThunk(
-  "tutors/addTutor",
-  async (tutorData) => {
-    const res = await fetch("http://localhost:8080/api/tutors", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(tutorData),
-    });
-    const data = await res.json();
-    return { ...data, id: data._id }; // map _id to id
+  "tutors/add",
+  async (tutorData, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(tutorData),
+      });
+
+      const contentType = res.headers.get("content-type");
+      if (!res.ok) {
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await res.json();
+          return rejectWithValue(errorData.message || "Failed to add tutor");
+        } else {
+          const text = await res.text();
+          return rejectWithValue("Server returned HTML: " + text);
+        }
+      }
+
+      return await res.json();
+    } catch (err) {
+      return rejectWithValue(err.message || "Failed to add tutor");
+    }
   }
 );
 
-// Update existing tutor
+/* ================= UPDATE TUTOR ================= */
 export const updateTutor = createAsyncThunk(
-  "tutors/updateTutor",
-  async ({ id, data }) => {
-    const res = await fetch(`http://localhost:8080/api/tutors/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    const updated = await res.json();
-    return { ...updated, id: updated._id }; // map _id to id
+  "tutors/update",
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch(`${API_URL}/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      const contentType = res.headers.get("content-type");
+      if (!res.ok) {
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await res.json();
+          return rejectWithValue(errorData.message || "Failed to update tutor");
+        } else {
+          const text = await res.text();
+          return rejectWithValue("Server returned HTML: " + text);
+        }
+      }
+
+      return await res.json();
+    } catch (err) {
+      return rejectWithValue(err.message || "Failed to update tutor");
+    }
   }
 );
 
-// Delete tutor
+/* ================= DELETE TUTOR ================= */
 export const deleteTutor = createAsyncThunk(
-  "tutors/deleteTutor",
-  async (id) => {
-    await fetch(`http://localhost:8080/api/tutors/${id}`, { method: "DELETE" });
-    return id; // return id to remove from state
+  "tutors/delete",
+  async (id, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!res.ok) throw new Error("Failed to delete tutor");
+      return id;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
   }
 );
 
-// --- Slice ---
+/* ================= SLICE ================= */
 const tutorsSlice = createSlice({
   name: "tutors",
   initialState: {
@@ -58,7 +112,7 @@ const tutorsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // GET tutors
+      // FETCH
       .addCase(getTutors.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -69,23 +123,32 @@ const tutorsSlice = createSlice({
       })
       .addCase(getTutors.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       })
 
-      // ADD tutor
+      // ADD
       .addCase(addTutor.fulfilled, (state, action) => {
         state.tutors.push(action.payload);
       })
-
-      // UPDATE tutor
-      .addCase(updateTutor.fulfilled, (state, action) => {
-        const index = state.tutors.findIndex((t) => t.id === action.payload.id);
-        if (index >= 0) state.tutors[index] = action.payload;
+      .addCase(addTutor.rejected, (state, action) => {
+        state.error = action.payload;
       })
 
-      // DELETE tutor
+      // UPDATE
+      .addCase(updateTutor.fulfilled, (state, action) => {
+        const index = state.tutors.findIndex((t) => t._id === action.payload._id);
+        if (index !== -1) state.tutors[index] = action.payload;
+      })
+      .addCase(updateTutor.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+
+      // DELETE
       .addCase(deleteTutor.fulfilled, (state, action) => {
-        state.tutors = state.tutors.filter((t) => t.id !== action.payload);
+        state.tutors = state.tutors.filter((t) => t._id !== action.payload);
+      })
+      .addCase(deleteTutor.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });

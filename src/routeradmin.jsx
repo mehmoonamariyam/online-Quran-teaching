@@ -1,20 +1,17 @@
 import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const AdminRoute = ({ children }) => {
-  const user = useSelector((state) => state.login.user);
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
 
-  // not logged in
-  if (!user) {
+  if (!token) {
     return <Navigate to="/login" replace />;
   }
 
-  // logged in but not admin
-  if (user.role !== "admin") {
-    return <Navigate to="/courses" replace />;
+  if (role !== "admin") {
+    return <Navigate to="/" replace />;
   }
 
-  // admin allowed
   return children;
 };
 

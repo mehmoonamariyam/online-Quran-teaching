@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loginUser} from '../../../store/slice/FormSlices/login';
-import { Link, useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../../store/slice/FormSlices/login";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, loading, error } = useSelector((state) => state.login || state);
+
+  const { user, loading, error } = useSelector((state) => state.login);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  /* ✅ REDIRECT AFTER LOGIN */
   useEffect(() => {
-  if (!user) return;
+    if (!user) return;
 
-  setUsername("");
-  setPassword("");
+    setUsername("");
+    setPassword("");
 
-  if (user.role === "admin") {
-    navigate("/admin/dashboard");
-  } else {
-    navigate("/courses");
-  }
-}, [user, navigate]);
-
+    if (user.role === "admin") {
+      navigate("/admin/dashboard", { replace: true });
+    } else {
+      navigate("/courses", { replace: true });
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     dispatch(loginUser({ username, password }));
   };
+
   return (
- <>
-  <div className="min-h-screen bg-[#e0b9ab] flex justify-center items-center px-4 py-8">
+    <div className="min-h-screen bg-[#e0b9ab] flex justify-center items-center px-4 py-8">
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
         {/* Images */}
         <img
@@ -48,55 +51,59 @@ const LoginForm = () => {
           NABA-AL-JANNAH
         </h1>
 
-    {/* Form */}
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <input
-        type="text"
-        placeholder="Enter your username"
-        className="w-full p-2 border rounded text-black placeholder-[#C48E84] focus:outline-none focus:ring-1 focus:ring-pink-950"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-        disabled={loading}
-      />
-      <input
-        type="password"
-        placeholder="Enter your password"
-        className="w-full p-2 border rounded text-[#000000] placeholder-[#C48E84] focus:outline-none focus:ring-1 focus:ring-pink-950"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        disabled={loading}
-      />
-      <button
-        type="submit"
-        className={`w-full py-2 rounded text-white font-bold transition ${
-          loading ? "bg-pink-300 cursor-not-allowed" : "bg-pink-900 hover:bg-pink-700"
-        }`}
-        disabled={loading}
-      >
-        {loading ? "Logging in..." : "Login"}
-      </button>
-      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-    </form>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Enter your username"
+            className="w-full p-2 border rounded text-black placeholder-[#C48E84]"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            disabled={loading}
+          />
+
+          <input
+            type="password"
+            placeholder="Enter your password"
+            className="w-full p-2 border rounded text-black placeholder-[#C48E84]"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            disabled={loading}
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-2 rounded text-white font-bold ${
+              loading
+                ? "bg-pink-300 cursor-not-allowed"
+                : "bg-pink-900 hover:bg-pink-700"
+            }`}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+        </form>
 
         <p className="text-sm text-center mt-4">
           Don’t have an account?{" "}
           <Link to="/signup" className="text-pink-950 hover:underline">
             Signup
-          </Link></p>
+          </Link>
+        </p>
 
-           <p className="text-sm text-center mt-4">
-          Don’t have an account?{" "}
+        <p className="text-sm text-center mt-2">
+          New student?{" "}
           <Link to="/enroll" className="text-pink-950 hover:underline">
-            Enroll-Now
+            Enroll Now
           </Link>
         </p>
       </div>
     </div>
+  );
+};
 
-    </>
-  )
-}
-
-export default LoginForm
+export default LoginForm;

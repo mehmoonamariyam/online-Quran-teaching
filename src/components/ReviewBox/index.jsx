@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReview, fetchReviews } from "../../store/slice/ReviewSlice";
 
-
 const ReviewSection = () => {
   const dispatch = useDispatch();
   const { reviews } = useSelector((state) => state.reviews);
@@ -13,21 +12,25 @@ const ReviewSection = () => {
   const [error, setError] = useState("");
   const [current, setCurrent] = useState(0);
 
-  // Fetch reviews from backend on mount
+  // Fetch all reviews on mount
   useEffect(() => {
     dispatch(fetchReviews());
   }, [dispatch]);
 
+  // Filter only approved reviews for frontend display
+  const approvedReviews = reviews.filter((r) => r.approved);
+
   // AUTO SLIDE INFINITE LOOP
   useEffect(() => {
-    if (reviews.length <= 1) return;
+    if (approvedReviews.length <= 1) return;
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % reviews.length);
+      setCurrent((prev) => (prev + 1) % approvedReviews.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [reviews]);
+  }, [approvedReviews]);
 
-  const handleSubmit = async (e) => {
+  // SUBMIT REVIEW
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim() || !review.trim() || rating === 0) {
       setError("Please fill all fields including rating.");
@@ -43,7 +46,6 @@ const ReviewSection = () => {
     }
 
     setError("");
-    // Send to backend via Redux
     dispatch(addReview({ name: name.trim(), review: review.trim(), rating }));
 
     setName("");
@@ -51,8 +53,9 @@ const ReviewSection = () => {
     setRating(0);
   };
 
+  // Carousel position logic
   const getPosition = (index) => {
-    const len = reviews.length;
+    const len = approvedReviews.length;
     let pos = index - current;
     if (pos < -Math.floor(len / 2)) pos += len;
     if (pos > Math.floor(len / 2)) pos -= len;
@@ -67,7 +70,7 @@ const ReviewSection = () => {
 
       {error && <p className="text-red-600 font-semibold mb-4 text-center">{error}</p>}
 
-      {/* FORM */}
+      {/* REVIEW FORM */}
       <form
         onSubmit={handleSubmit}
         className="bg-pink-50 shadow-md p-4 rounded-xl mb-10 max-w-xl mx-auto"
@@ -81,9 +84,7 @@ const ReviewSection = () => {
           maxLength={30}
         />
 
-        <label className="block text-lg font-semibold text-pink-900 mb-1">
-          Your Review
-        </label>
+        <label className="block text-lg font-semibold text-pink-900 mb-1">Your Review</label>
         <textarea
           className="w-full p-2 border border-pink-300 rounded-lg mb-2"
           rows="4"
@@ -116,9 +117,9 @@ const ReviewSection = () => {
       </form>
 
       {/* CAROUSEL */}
-      {reviews.length > 0 && (
+      {approvedReviews.length > 0 && (
         <div className="relative flex justify-center items-center overflow-hidden h-[440px] w-full px-4">
-          {reviews.map((item, index) => {
+          {approvedReviews.map((item, index) => {
             const pos = getPosition(index);
             const scale = pos === 0 ? 1.05 : 0.85;
             const opacity = pos === 0 ? 1 : 0.6;
@@ -129,7 +130,7 @@ const ReviewSection = () => {
 
             return (
               <div
-                key={item._id || item.id}
+                key={item._id}
                 className="absolute bg-white shadow-lg border border-pink-200 rounded-xl p-4 flex flex-col justify-between transition-all duration-500"
                 style={{
                   width: cardWidth,

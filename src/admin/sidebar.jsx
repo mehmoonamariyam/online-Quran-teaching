@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const linkClass = ({ isActive }) =>
+    isActive
+      ? "text-pink-300 font-semibold"
+      : "hover:text-pink-300";
+
   return (
     <div className="w-64 min-h-screen bg-pink-950 text-white p-5">
       <h2 className="text-xl font-bold mb-8 text-center">
@@ -8,17 +13,25 @@ const Sidebar = () => {
       </h2>
 
       <nav className="flex flex-col gap-4">
-        <Link to="/admin/dashboard" className="hover:text-pink-300">
+        <NavLink to="/admin/dashboard" className={linkClass}>
           Dashboard
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/courses" className="hover:text-pink-300">
+        <NavLink to="/admin/courses" className={linkClass}>
           Courses
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/teachers" className="hover:text-pink-300">
+        <NavLink to="/admin/teachers" className={linkClass}>
           Teachers
-        </Link>
+        </NavLink>
+
+        <NavLink to="/admin/users" className={linkClass}>
+          Users
+        </NavLink>
+
+        <NavLink to="/admin/reviews" className={linkClass}>
+          Reviews
+        </NavLink>
       </nav>
     </div>
   );

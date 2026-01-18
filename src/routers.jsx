@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
 import HomePage from "./pages/homepage";
 import CoursePage from "./pages/coursesPage";
 import CourseDetailPage from "./pages/courseDetailPage";
@@ -11,15 +12,19 @@ import ContactPage from "./pages/ContactPage";
 import DonationPage from "./pages/DonationPage/donation";
 import TutorPage from "./pages/TutorsPage";
 
+// ===== ADMIN =====
 import AdminRoute from "./routeradmin";
-
-
-import DashboardLayout from "./admin/AdminDashboard";
-
+import AdminLayout from "./admin/AdminLayout";
+import AdminCourses from "./admin/AdminCourses";
+import AdminTeachers from "./admin/AdminTeachers";
+import DashboardHome from "./admin/DashboardHome";
+import AdminUsers from "./admin/AdminUsers";
+import AdminReviews from "./admin/AdminReviews";
 
 const RoutersCall = () => {
   return (
     <Routes>
+      {/* ===== PUBLIC ROUTES ===== */}
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/login" element={<LoginPage />} />
@@ -32,22 +37,30 @@ const RoutersCall = () => {
       <Route path="/donate" element={<DonationPage />} />
       <Route path="/tutors" element={<TutorPage />} />
 
-<Route
-  path="/admin/dashboard"
+      {/* ===== ADMIN ROUTES (NESTED) ===== */}
+      <Route
+  path="/admin"
   element={
     <AdminRoute>
-      <DashboardLayout />
+      <AdminLayout />
     </AdminRoute>
   }
-/>
+>
+  <Route index element={<DashboardHome />} />
+  <Route path="dashboard" element={<DashboardHome />} />
+  <Route path="courses" element={<AdminCourses />} />
+  <Route path="teachers" element={<AdminTeachers />} />
+  <Route path="users" element={<AdminUsers />} />
+  <Route path="reviews" element={<AdminReviews />} />
+</Route>
 
-
-
-      {/* 404 */}
+      {/* ===== 404 ===== */}
       <Route
         path="*"
         element={
-          <p className="text-center mt-20 text-gray-500">Page not found!</p>
+          <p className="text-center mt-20 text-gray-500">
+            Page not found!
+          </p>
         }
       />
     </Routes>
