@@ -20,7 +20,7 @@ const Footer = () => {
             <img
               src="/images/logonaba.png"
               alt="Naba Al Jannah Logo"
-              className="w-16 h-16"
+              className="w-25 h-25"
             />
             <div>
               <h2 className="text-2xl font-bold text-pink-900">
@@ -30,8 +30,8 @@ const Footer = () => {
                 <span className="font-semibold text-pink-900">
                   Naba Al Jannah
                 </span>{" "}
-                is your trusted online Quran academy, helping students of all
-                ages learn with qualified tutors in a peaceful environment —
+                is your trusted online Qur'an academy, helping students of all
+                ages learn with qualified Asatizah in a peaceful environment
                 from the comfort of home.
               </p>
             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tutor" className="hover:text-pink-900 hover:underline transition block">
+                <Link to="/tutors" className="hover:text-pink-900 hover:underline transition block">
                   Tutors
                 </Link>
               </li>
@@ -82,25 +82,27 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-2 text-[#7A5C61]">
-              <li>📞 +92 336 5925901</li>
-              <li>✉️ info@nabaaljannah.com</li>
-              <li>📍 Chakwal, Pakistan</li>
+              <li>📞 +92 332 6049365</li>
+              <li>📞 +92 311 3487849</li>
+              <li>✉️ nabaaljannah@gmail.com</li>
+              <li>📍   Pakistan</li>
             </ul>
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/923181557123"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-pink-900 text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-pink-700 transition"
-            >
-              <img
-                src="/images/wtsplogo.png"
-                alt="WhatsApp"
-                className="w-5 h-5"
-              />
-              WhatsApp Us
-            </a>
+  href="https://wa.me/923326049365"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center gap-2 bg-pink-900 text-white font-semibold py-2 px-5 mt-4 rounded-full shadow-md hover:bg-pink-700 transition"
+>
+  <img
+    src="/images/wtsplogo.png"
+    alt="WhatsApp"
+    className="w-5 h-5"
+  />
+  WhatsApp Us
+</a>
+
           </div>
         </div>
 

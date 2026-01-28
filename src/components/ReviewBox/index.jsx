@@ -64,9 +64,12 @@ const ReviewSection = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-16 px-4">
-      <h2 className="text-3xl text-pink-900 font-extrabold mb-6 text-center">
-        Student Reviews
-      </h2>
+      <div className="text-center">
+      <h2 className="text-3xl text-pink-900 font-extrabold mb-6 relative inline-block">
+  Student Reviews
+  <span className="block w-full h-1 bg-pink-900 mt-2 rounded-full"></span>
+</h2></div>
+
 
       {error && <p className="text-red-600 font-semibold mb-4 text-center">{error}</p>}
 

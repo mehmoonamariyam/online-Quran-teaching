@@ -1,13 +1,13 @@
 import React, { useRef, useEffect } from "react";
 
 const cards = [
-  { img: "/images/female.png", title: "Qualified Tutors", text: "Experienced Hafiz, Aalimaat, and certified teachers to guide you with care." },
+  { img: "/images/female.png", title: "Qualified Asatizah", text: "Experienced and certified teachers to guide you with care." },
   { img: "/images/time.png", title: "Flexible Timings", text: "Morning & evening slots to fit your routine, no matter how busy you are." },
-  { img: "/images/t.png", title: "Female Tutors", text: "Dedicated female teachers for sisters and kids, ensuring comfort and ease." },
+  { img: "/images/t.png", title: "Female Asatizah", text: "Dedicated female Asatizah for sisters and kids, ensuring comfort and ease." },
   { img: "/images/cardd.png", title: "Engaging Lessons", text: "Learn Quran with practical exercises, recitation, and real-time feedback." },
   { img: "/images/guide.png", title: "Gentle Guidance", text: "Personalized classes or group sessions for interactive learning." },
   { img: "/images/donated.png", title: "Community Support", text: "Be part of a supportive environment that motivates and inspires you." },
-  { img: "/images/donate.png", title: "Your Fee, Their Relief", text: "Every contribution supports Quran education for those in need." },
+  { img: "/images/donate.png", title: "Your Hadiya, Their Relief", text: "Every contribution brings hope, dignity, and relief to those in need." },
 ];
 
 const Slider = () => {
@@ -15,23 +15,17 @@ const Slider = () => {
   const containerRef = useRef(null);
   const rafRef = useRef(null);
   const posRef = useRef(0);
-  const speedRef = useRef(0.35); // pixels per frame — tweak for speed
+  const speedRef = useRef(0.35); 
   const pausedRef = useRef(false);
   const halfWidthRef = useRef(0);
-
-  // Duplicate cards for smooth loop
   const infiniteCards = [...cards, ...cards];
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-
-    // function to recalc sizes (call on mount + resize)
     const recalc = () => {
-      // total width of the track (two sets)
       const total = track.scrollWidth;
       halfWidthRef.current = total / 2;
-      // ensure position is always within [0, halfWidth)
       posRef.current = posRef.current % halfWidthRef.current;
     };
 
@@ -39,17 +33,13 @@ const Slider = () => {
     const step = () => {
       if (!pausedRef.current) {
         posRef.current += speedRef.current;
-        // wrap seamlessly
         if (posRef.current >= halfWidthRef.current) {
           posRef.current -= halfWidthRef.current;
         }
-        // apply transform
         track.style.transform = `translateX(${-posRef.current}px)`;
       }
       rafRef.current = requestAnimationFrame(step);
     };
-
-    // Start
     recalc();
     rafRef.current = requestAnimationFrame(step);
 
@@ -98,14 +88,12 @@ const Slider = () => {
 
   return (
     <>
-<h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mt-15 mb-10 relative text-center inline-block w-full">
-  Why Choose Us
-  <span className="block w-24 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
+<h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mt-15 mb-10 relative text-center">
+  <span className="inline-block">
+    Why Choose Us
+  </span>
 </h2>
-
-
-
-      <section className="bg-pink-900 py-4 overflow-hidden">
+ <section className="bg-pink-900 py-4 overflow-hidden">
         {/* containerRef used to detect hover/touch */}
         <div ref={containerRef} className="w-full overflow-hidden">
           {/* trackRef is transformed by JS; flex + gap keeps layout */}
@@ -113,8 +101,6 @@ const Slider = () => {
             ref={trackRef}
             className="flex items-stretch gap-4 will-change-transform"
             style={{
-              // ensure the track shrinks properly on small screens;
-              // children widths are percentage-based via Tailwind classes below
               alignItems: "stretch",
             }}
           >

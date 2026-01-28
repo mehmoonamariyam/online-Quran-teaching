@@ -6,6 +6,7 @@ import Footer from '../../components/footer'
 import ScrollToTop from '../../components/scrolltotop'
 import MissionVision from '../../components/abouthero/mission'
 import AchievementsSection from '../../components/abouthero/trust'
+import ReviewSection from '../../components/ReviewBox'
 
 
 const AboutPage = () => {
@@ -25,6 +26,8 @@ const AboutPage = () => {
     <MissionVision/>
    <Slider/>
   <AchievementsSection/>
+  <ReviewSection/>
+  <br/><br/>
    <Footer/>
 
     </>

@@ -1,4 +1,4 @@
-import { Users, Star, BookOpen, Globe } from "lucide-react";
+import { Users, Award, ThumbsUp, MessageCircleIcon } from "lucide-react";
 
 const AchievementsSection = () => {
   return (
@@ -16,36 +16,40 @@ const AchievementsSection = () => {
           Trusted by Learners Around the World
         </h2>
         <p className="text-lg text-pink-900 mb-14 max-w-3xl mx-auto leading-relaxed">
-          Over the years, <span className="font-semibold text-pink-950">Naba Al Jannah Academy</span> 
-          has guided hundreds of students in learning and memorizing the Holy Quran.  
-          With expert tutors and personalized attention, our students achieve their goals with confidence and faith.
+          Since 2018, <span className="font-semibold text-pink-900">Naba Al Jannah Academy </span> 
+          has guided hundreds of students in learning and memorizing the Holy Qur'an.  
+          With expert Asatizah and personalized attention, our students achieve their goals with confidence and faith.
         </p>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 duration-300">
-            <Users className="w-10 h-10 text-[#C48E84] mx-auto mb-3" />
-            <h3 className="text-3xl font-extrabold text-pink-900">1000+</h3>
-            <p className="text-pink-800 font-medium">Students Enrolled</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+  <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 sm:hover:-translate-y-2 duration-300 text-center">
+    <Users className="w-8 sm:w-10 h-8 sm:h-10 text-pink-900 mx-auto mb-2 sm:mb-3" />
+    <h3 className="text-2xl sm:text-3xl font-extrabold text-pink-900">1000+</h3>
+    <p className="text-pink-800 font-medium text-sm sm:text-base">Students Enrolled</p>
+  </div>
 
-          <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 duration-300">
-            <BookOpen className="w-10 h-10 text-pink-900 mx-auto mb-3" />
-            <h3 className="text-3xl font-extrabold text-pink-900">25+</h3>
-            <p className="text-pink-800 font-medium">Courses Completed</p>
-          </div>
+  <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 sm:hover:-translate-y-2 duration-300 text-center">
+    <Award className="w-8 sm:w-10 h-8 sm:h-10 text-pink-900 mx-auto mb-2 sm:mb-3" />
+    <h3 className="text-2xl sm:text-3xl font-extrabold text-pink-900">70+</h3>
+    <p className="text-pink-800 font-medium text-sm sm:text-base">Courses Completed</p>
+  </div>
 
-          <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 duration-300">
-            <Star className="w-10 h-10 text-[#C48E84] mx-auto mb-3" />
-            <h3 className="text-3xl font-extrabold text-pink-900">98%</h3>
-            <p className="text-pink-800 font-medium">Student Satisfaction</p>
-          </div>
+  <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 sm:hover:-translate-y-2 duration-300 text-center">
+    <ThumbsUp className="w-8 sm:w-10 h-8 sm:h-10 text-pink-900 mx-auto mb-2 sm:mb-3" />
+    <h3 className="text-2xl sm:text-3xl font-extrabold text-pink-900">98%</h3>
+    <p className="text-pink-800 font-medium text-sm sm:text-base">Student Satisfaction</p>
+  </div>
 
-          <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 duration-300">
-            <Globe className="w-10 h-10 text-pink-900 mx-auto mb-3" />
-            <h3 className="text-3xl font-extrabold text-pink-900">15+</h3>
-            <p className="text-pink-800 font-medium">Countries Reached</p>
-          </div>
+  <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 sm:hover:-translate-y-2 duration-300 text-center">
+    <MessageCircleIcon className="w-8 sm:w-10 h-8 sm:h-10 text-pink-900 mx-auto mb-2 sm:mb-3" />
+    <h3 className="text-2xl sm:text-3xl font-extrabold text-pink-900">25+</h3>
+    <p className="text-pink-800 font-medium text-sm sm:text-base">Active Study Groups</p>
+  </div>
+
+
+
+
         </div>
 
         {/* Motivational Line */}

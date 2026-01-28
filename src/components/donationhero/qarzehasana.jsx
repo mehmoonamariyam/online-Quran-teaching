@@ -16,20 +16,21 @@ const QarzeHasana = () => {
   return (
     <section className="py-16 px-6 md:px-16 bg-pink-50">
  <div className="text-center mb-12 px-4 md:px-0">
-  <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-4 relative inline-block">
-    Qarze Hasana Initiative
-    <span className="block w-24 h-1 bg-linear-to-r from-pink-500 to-pink-900 rounded-full mt-2 mx-auto"></span>
-  </h2>
+ <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-4 relative inline-block">
+  Qarze Hasana Initiative
+ 
+</h2>
+
 
   <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 max-w-3xl mx-auto">
     📖 <span className="font-semibold text-pink-900">“Who is it that will lend Allah a goodly loan so He may multiply it for him many times over?”</span> - <span className="italic text-pink-700">Surah Al-Baqarah (2:245)</span>
   </p>
 
   <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 max-w-3xl mx-auto">
-    Helping Others, <span className="text-pink-900 font-semibold">Uplifting Lives</span> — A Loan Without Burden.
+    Helping Others, <span className="text-pink-900 font-semibold">Uplifting Lives</span> , A Loan Without Burden.
   </p>
 
-  <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+  <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto ">
     Our <span className="text-pink-900 font-semibold">Qarze Hasana program</span> supports individuals & families in need through <span className="text-pink-700 font-medium">interest-free financial assistance</span>, following the Quranic principle of lending for the sake of ALLAH. Every contribution becomes a <span className="text-pink-900 font-semibold">means of Sadaqah Jariyah</span> and a step towards a compassionate, faith-driven community.
   </p>
 </div>

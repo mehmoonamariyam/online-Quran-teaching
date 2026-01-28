@@ -16,7 +16,7 @@ const ContactHeader = () => {
   </p>
 
   <p className="text-lg md:text-xl text-pink-900 max-w-xl">
-    Reach out to us anytime — we’re committed to providing you with quick, friendly, and helpful support.
+    Reach out to us anytime. We’re committed to providing you with quick, friendly, and helpful support.
   </p>
 </div>
 

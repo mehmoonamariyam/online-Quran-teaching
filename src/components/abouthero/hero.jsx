@@ -12,7 +12,7 @@ const HeroAbout = () => {
   </h1>
   <p className="text-lg md:text-xl text-pink-900 mb-4 max-w-xl">
     Discover the beauty of Islam through engaging courses and dedicated
-          tutors who nurture the heart, mind, and soul. Learn Tajweed, Tafseer,
+          Asatizah who nurture the heart, mind, and soul. Learn Tajweed, Tafseer,
           Tehfeez, Salah, Duas, and the inspiring lives of the Sahabiyaat.</p>
 
 </div>

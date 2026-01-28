@@ -11,7 +11,7 @@ const CoursesHeader = () => {
               Explore Our Courses
             </h1>
             <p className="text-lg md:text-xl text-pink-800 mb-4 max-w-xl">
-              Learn Quran, Arabic, and Islamic studies through structured and 
+              Learn Qur'an, Arabic, and Islamic studies through structured and 
               engaging courses designed for all ages and levels.
             </p>
             <p className="text-lg md:text-xl text-pink-800 max-w-xl">

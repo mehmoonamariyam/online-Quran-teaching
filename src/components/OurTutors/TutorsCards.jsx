@@ -29,10 +29,13 @@ const TutorsCard = () => {
 
   return (
     <section className="min-h-screen py-14">
-      <h2 className="text-4xl font-extrabold text-center text-pink-900 mb-12 relative">
-        Our Tutors
-        <span className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-pink-500 to-pink-900 rounded-full"></span>
-      </h2>
+      <h2 className="text-4xl font-extrabold text-pink-900 mb-12 text-center">
+  <span className="inline-block">
+    Our Asatizah
+    <span className="block w-full h-1 mt-2 bg-gradient-to-r from-pink-500 to-pink-900 rounded-full"></span>
+  </span>
+</h2>
+
 
       {rows.map((rowTutors, rowIndex) => {
         const rowBg = rowIndex % 2 === 0 ? "bg-pink-200" : "bg-white";

@@ -8,7 +8,7 @@ const DonationHero = () => {
     {/* Left: Text */}
   <div className="md:w-1/2 text-center md:text-left">
   <h1 className="text-4xl md:text-5xl font-extrabold text-pink-900 mb-6">
-    Support the Cause — Donate Today
+    Support the Cause  Donate Today
   </h1>
   <p className="text-lg md:text-xl text-pink-900 mb-4 max-w-xl">
     Helping Others, Uplifting Lives through Sadaqah Jariyah and our Qarze Hasana initiative.

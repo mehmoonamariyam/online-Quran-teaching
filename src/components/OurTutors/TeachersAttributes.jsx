@@ -3,13 +3,13 @@ import React from "react";
 const attributes = [
   { 
     icon: "/images/Patient.png", 
-    title: "Patient & Supportive",
+    title: "Gentle & Supportive",
     description: "Our teachers guide students gently, ensuring each lesson is clear and understood, no matter the pace of learning."
   },
   { 
     icon: "/images/Knowledge.png", 
     title: "Knowledgeable & Skilled",
-    description: "Every tutor is well-versed in Quran, Tajweed, and Islamic teachings, providing authentic and accurate instruction."
+    description: "Every ustazah is well-versed in Qur'an, Tajweed, and Islamic teachings, providing authentic and accurate instruction."
   },
   { 
     icon: "/images/Friendly.png", 
@@ -19,7 +19,7 @@ const attributes = [
   { 
     icon: "/images/Motivating.png", 
     title: "Dedicated & Motivating",
-    description: "Our teachers inspire students to stay consistent, practice regularly, and achieve their Quran learning goals."
+    description: "Our Asatizah inspire students to stay consistent, practice regularly, and achieve their Qur'an learning goals."
   },
 ];
 
@@ -31,8 +31,8 @@ const TeachersAttributes = () => {
       
       {/* Section Title */}
       <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-12 text-center">
-        Why Choose Our Teachers
-        <span className="block w-20 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
+        Why Choose Our Asatizah
+        
       </h2>
 
       {/* Attributes Layout */}

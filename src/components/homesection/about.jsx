@@ -17,36 +17,33 @@ const AboutUs = () => {
               />
             </div>
           </div>
+  <div className="w-full md:w-1/2 px-2 md:px-0 text-center md:text-left">
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-pink-900 mb-3 sm:mb-6 md:mb-8 relative inline-block">
+    About Us
+  </h2>
 
-         
+  <p className="text-base sm:text-lg md:text-lg leading-relaxed mb-3 sm:mb-6 text-justify text-gray-700 break-words">
+    <span className="font-semibold text-[#C48E84]">Naba Al Jannah</span> is an online Qur'an
+    academy dedicated to spreading the light of Quranic knowledge. Our
+    certified and experienced Asatizah guide students of all ages through
+    personalized one-on-one sessions, making Qur'an learning easy,
+    interactive, and spiritually uplifting from the comfort of your home.
+  </p>
 
-          <div className="md:w-1/2 text-center md:text-left">
-         <h2 className="text-3xl md:text-4xl font-extrabold text-pink-900 mb-6 relative inline-block">
-        About Us
-        <span className="block w-20 h-1 bg-pink-900 mt-2 mx-auto rounded-full"></span>
-      </h2>
+  <p className="text-base sm:text-lg md:text-lg leading-relaxed mb-3 sm:mb-6 text-justify text-gray-800 break-words">
+    Discover the beauty of Islam through engaging courses that nurture
+    the heart, mind, and soul. From <span className="font-semibold text-pink-800">Tajweed</span>,{" "}
+    <span className="font-semibold text-pink-800">Tafseer</span>,{" "}
+    <span className="font-semibold text-pink-800">Tehfeez</span> to{" "}
+    <span className="font-semibold text-pink-800">Salah</span>,{" "}
+    <span className="font-semibold text-pink-800">Rabbana & Masnoon Duas</span>, and the inspiring
+    lives of the <span className="font-semibold text-pink-800">Sahabiyaat</span>, our courses are
+    designed to deepen your connection with <span className="font-semibold">ALLAH</span> and
+    strengthen your understanding of the Qur'an and Sunnah.
+  </p>
+</div>
 
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              <span className="font-semibold text-[#C48E84]">Naba Al Jannah</span> is an online Quran
-              academy dedicated to spreading the light of Quranic knowledge. Our
-              certified and experienced tutors guide students of all ages through
-              personalized one-on-one sessions — making Quran learning easy,
-              interactive, and spiritually uplifting from the comfort of your home.
-            </p>
 
-            <p className="text-gray-800 leading-relaxed text-lg mb-4">
-                Discover the beauty of Islam through engaging courses that nurture
-                the heart, mind, and soul. From <span className="font-semibold text-pink-800">Tajweed</span>,{" "}
-                <span className="font-semibold text-pink-800">Tafseer</span>,{" "}
-                <span className="font-semibold text-pink-800">Tehfeez</span> to{" "}
-                <span className="font-semibold text-pink-800">Salah</span>,{" "}
-                <span className="font-semibold text-pink-800">Rabbana & Masnoon Duas</span>, and the inspiring
-                lives of the <span className="font-semibold text-pink-800">Sahabiyaat</span>, our courses are
-                designed to deepen your connection with <span className="font-semibold">ALLAH</span> and
-                strengthen your understanding of the Quran and Sunnah.
-              </p>
-
-          </div>
         </div>
       </section>
     </>
