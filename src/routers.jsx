@@ -20,6 +20,7 @@ import AdminTeachers from "./admin/AdminTeachers";
 import DashboardHome from "./admin/DashboardHome";
 import AdminUsers from "./admin/AdminUsers";
 import AdminReviews from "./admin/AdminReviews";
+import AdminEnrollments from "./admin/AdminEnrollments";
 
 
 const RoutersCall = () => {
@@ -53,6 +54,7 @@ const RoutersCall = () => {
   <Route path="teachers" element={<AdminTeachers />} />
   <Route path="users" element={<AdminUsers />} />
   <Route path="reviews" element={<AdminReviews />} />
+  <Route path="enrollments" element={<AdminEnrollments />} />
 </Route>
 
       {/* ===== 404 ===== */}

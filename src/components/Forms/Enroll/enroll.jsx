@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useForm } from 'react-hook-form';
-import { submitEnroll } from '../../../store/slice/FormSlices/enroll';
+import { useForm } from "react-hook-form";
+import { submitEnroll } from "../../../store/slice/FormSlices/enroll";
 
+// ==================== VALIDATION SCHEMA ====================
 const schema = yup.object().shape({
   firstName: yup.string().trim().required("First name is required"),
   lastName: yup.string().trim().nullable(),
@@ -35,19 +36,23 @@ const EnrollmentForm = () => {
 
   const [courses, setCourses] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [countryCode, setCountryCode] = useState("+92");
 
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
     resolver: yupResolver(schema),
     defaultValues,
     mode: "onTouched",
   });
 
-  // Fetch courses
+  // ==================== FETCH COURSES ====================
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/courses');
+        const res = await fetch("http://localhost:8080/api/courses");
         const data = await res.json();
         setCourses(data);
       } catch (err) {
@@ -57,7 +62,7 @@ const EnrollmentForm = () => {
     fetchCourses();
   }, []);
 
-  // Fetch countries dynamically
+  // ==================== FETCH COUNTRIES ====================
   useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -66,16 +71,11 @@ const EnrollmentForm = () => {
         const mapped = data
           .map((c, index) => ({
             name: c.name.common,
-            dial: c.idd?.root ? c.idd.root + (c.idd?.suffixes?.[0] || '') : "",
+            dial: c.idd?.root ? c.idd.root + (c.idd?.suffixes?.[0] || "") : "",
             code: c.cca2 || index,
           }))
-          .filter(c => c.dial);
+          .filter((c) => c.dial);
         setCountries(mapped);
-
-        // Set default country based on browser locale
-        const region = new Intl.DateTimeFormat().resolvedOptions().locale.split('-')[1];
-        const userCountry = mapped.find(c => c.code === region);
-        if (userCountry) setCountryCode(userCountry.dial);
       } catch (err) {
         console.error("Failed to fetch countries", err);
       }
@@ -83,9 +83,12 @@ const EnrollmentForm = () => {
     fetchCountries();
   }, []);
 
+  // ==================== SUBMIT HANDLER ====================
   const onSubmit = async (data) => {
-    dispatch(submitEnroll(data));
-    reset(defaultValues);
+    const resultAction = await dispatch(submitEnroll(data));
+    if (submitEnroll.fulfilled.match(resultAction)) {
+      reset(defaultValues);
+    }
   };
 
   return (
@@ -98,14 +101,18 @@ const EnrollmentForm = () => {
           <label className="block text-sm font-medium">First Name</label>
           <input
             {...register("firstName")}
-            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.firstName ? "border-red-400" : "border-gray-300"}`}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${
+              errors.firstName ? "border-red-400" : "border-gray-300"
+            }`}
           />
           {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
         </div>
-
         <div className="flex-1">
           <label className="block text-sm font-medium">Last Name</label>
-          <input {...register("lastName")} className="mt-1 block w-full rounded border border-gray-300 px-3 py-2" />
+          <input
+            {...register("lastName")}
+            className="mt-1 block w-full rounded border border-gray-300 px-3 py-2"
+          />
         </div>
       </div>
 
@@ -116,17 +123,16 @@ const EnrollmentForm = () => {
           <input
             type="email"
             {...register("email")}
-            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.email ? "border-red-400" : "border-gray-300"}`}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${
+              errors.email ? "border-red-400" : "border-gray-300"
+            }`}
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
         </div>
-
         <div>
           <label className="block text-sm font-medium">Country Code</label>
           <select
             {...register("countryCode")}
-            value={countryCode}
-            onChange={(e) => setCountryCode(e.target.value)}
             className="mt-1 block w-full rounded border border-gray-300 px-2 py-2"
           >
             {countries.map((c, index) => (
@@ -143,7 +149,9 @@ const EnrollmentForm = () => {
         <label className="block text-sm font-medium">Phone Number</label>
         <input
           {...register("phone")}
-          className={`mt-1 block w-full rounded border px-3 py-2 ${errors.phone ? "border-red-400" : "border-gray-300"}`}
+          className={`mt-1 block w-full rounded border px-3 py-2 ${
+            errors.phone ? "border-red-400" : "border-gray-300"
+          }`}
           placeholder="e.g. 3001234567"
         />
         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
@@ -156,16 +164,19 @@ const EnrollmentForm = () => {
           <input
             type="number"
             {...register("age")}
-            className={`mt-1 block w-full rounded border px-3 py-2 ${errors.age ? "border-red-400" : "border-gray-300"}`}
+            className={`mt-1 block w-full rounded border px-3 py-2 ${
+              errors.age ? "border-red-400" : "border-gray-300"
+            }`}
           />
           {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age.message}</p>}
         </div>
-
         <div className="flex-1">
           <label className="block text-sm font-medium">Gender</label>
           <select
             {...register("gender")}
-            className={`mt-1 block w-full rounded border px-2 py-2 ${errors.gender ? "border-red-400" : "border-gray-300"}`}
+            className={`mt-1 block w-full rounded border px-2 py-2 ${
+              errors.gender ? "border-red-400" : "border-gray-300"
+            }`}
           >
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
@@ -180,11 +191,13 @@ const EnrollmentForm = () => {
         <label className="block text-sm font-medium">Course</label>
         <select
           {...register("course")}
-          className={`mt-1 block w-full rounded border px-2 py-2 ${errors.course ? "border-red-400" : "border-gray-300"}`}
+          className={`mt-1 block w-full rounded border px-2 py-2 ${
+            errors.course ? "border-red-400" : "border-gray-300"
+          }`}
         >
           <option value="">Choose a course</option>
           {courses.map((c) => (
-            <option key={c.id} value={c.title}>
+            <option key={c._id} value={c.title}>
               {c.title}
             </option>
           ))}
@@ -212,7 +225,9 @@ const EnrollmentForm = () => {
         <button
           type="submit"
           disabled={isSubmitting || loading}
-          className={`px-4 py-2 rounded font-semibold text-white ${isSubmitting || loading ? "bg-gray-400" : "bg-pink-950 hover:bg-pink-700"}`}
+          className={`px-4 py-2 rounded font-semibold text-white ${
+            isSubmitting || loading ? "bg-gray-400" : "bg-pink-950 hover:bg-pink-700"
+          }`}
         >
           {isSubmitting || loading ? "Sending..." : "Submit"}
         </button>

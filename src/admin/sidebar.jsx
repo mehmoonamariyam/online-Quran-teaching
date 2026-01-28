@@ -32,6 +32,10 @@ const Sidebar = () => {
         <NavLink to="/admin/reviews" className={linkClass}>
           Reviews
         </NavLink>
+
+        <NavLink to="/admin/enrollments" className={linkClass}>
+          Enrollments
+        </NavLink>
       </nav>
     </div>
   );
