@@ -9,7 +9,7 @@ const AdminEnrollments = () => {
   useEffect(() => {
     dispatch(fetchEnrollments());
 
-    // Cleanup on unmount
+
     return () => {
       dispatch(resetEnrollmentsState());
     };
